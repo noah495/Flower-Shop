@@ -2,7 +2,7 @@ package Main;
 
 public class Blume {
 
-    //TODO: (2nd Step) Make all fields private
+    //TODO: (2nd Step) Make all fields private --DONE
 //TODO: (7th Step) Search whole project for Yagni
     private final Bewaesserung bewaesserung = new Bewaesserung();
     private final Faktoren faktoren = new Faktoren();
@@ -31,7 +31,7 @@ public class Blume {
         bewaesserung.setLiter(wasserVerbrauch);
         this.istLebendig = istLebendig;
         istGekauft = false;
-        mengeImBesitz = 0;
+        mengeImBesitz = 1;
     }
 
     Blume(final char anfangsbuchstabe) {
