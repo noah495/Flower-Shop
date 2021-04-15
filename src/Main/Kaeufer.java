@@ -8,32 +8,30 @@ public class Kaeufer {
     public void blumeKaufen() {
         final Scanner scanner = new Scanner(System.in);
         System.out.println("Which plant do you want to buy?");
-        System.out.println("tulip\n" +
-                "lavender\n" +
-                "rose");
-        final String nextLine = scanner.nextLine();
-        switch (nextLine) {
-            //TODO: (3rd Step) Shorten
-            case "tulip":
-                final Blume tulip = shop.getFlower("tulip");
-                tulip.setIstGekauft(true);
-                tulip.setMengeImBesitz(1);
-                break;
-            case "lavender":
-                // TODO: (1st Step) Make like tulip
+
+        //TODO: (3rd Step) Shorten
+        for (int i = 0; i < 1; ) {
+            final String nextLine = scanner.nextLine();
+            if (nextLine.equals("y")) {
+                i++;
+                System.out.println("next Step");
+            } else {
+                for (int ii = 0; ii < shop.blumen.length; ii++) {
+                    if (shop.getFlower(nextLine) == shop.blumen[ii]) {
+                        System.out.println("Success");
+
+                        shop.blumen[ii].setIstGekauft(true);
+                        shop.blumen[ii].setMengeImBesitz(2);
+                    }
+                }
+
+          /*  case "lavender":
+                // TODO: (1st Step) Make like tulip --DONE
                 final Blume lavender = shop.getFlower("lavender");
                 lavender.setIstGekauft(true);
                 lavender.setMengeImBesitz(1);
-
-                break;
-            case "rose":
-                final Blume rose = shop.getFlower("rose");
-                rose.setIstGekauft(true);
-                rose.setMengeImBesitz(1);
-
-                break;
-            default:
-                System.out.println("Plant not found");
+                break;*/
+            }
         }
     }
 }
