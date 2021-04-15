@@ -24,13 +24,6 @@ public class Kaeufer {
                         shop.blumen[ii].setMengeImBesitz(2);
                     }
                 }
-
-          /*  case "lavender":
-                // TODO: (1st Step) Make like tulip --DONE
-                final Blume lavender = shop.getFlower("lavender");
-                lavender.setIstGekauft(true);
-                lavender.setMengeImBesitz(1);
-                break;*/
             }
         }
     }

@@ -4,7 +4,6 @@ public class Faktoren {
 
     private boolean beleuchtet;
     private int temperatur = 30;
-    private int luftfeuchtigkeit;
 
     public int getTemperatur() {
         return temperatur;
@@ -20,13 +19,5 @@ public class Faktoren {
 
     public void setBeleuchtet(final boolean beleuchtet) {
         this.beleuchtet = beleuchtet;
-    }
-
-    public int getLuftfeuchtigkeit() {
-        return luftfeuchtigkeit;
-    }
-
-    public void setLuftfeuchtigkeit(final int luftfeuchtigkeit) {
-        this.luftfeuchtigkeit = luftfeuchtigkeit;
     }
 }

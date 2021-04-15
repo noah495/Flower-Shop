@@ -18,10 +18,6 @@ public class Blume {
         this.istLebendig = true;
     }
 
-    Blume(final double preis) {
-        this.kaufPreis = preis;
-    }
-
     Blume(final String name, final char anfangsbuchstabe, final double preis, final int idealeTemperatur, final boolean beleuchtet, final int wasserVerbrauch, final boolean istLebendig) {
         this.name = name;
         this.kaufPreis = preis;
@@ -32,21 +28,6 @@ public class Blume {
         this.istLebendig = istLebendig;
         istGekauft = false;
         mengeImBesitz = 1;
-    }
-
-    Blume(final char anfangsbuchstabe) {
-        this.anfangsbuchstabe = anfangsbuchstabe;
-    }
-
-    Blume(final double preis, final boolean istZustand) {
-        this.kaufPreis = preis;
-        this.istLebendig = istZustand;
-    }
-
-    Blume(final double preis, final char anfangsbuchstabe, final boolean istLebendig) {
-        this.kaufPreis = preis;
-        this.anfangsbuchstabe = anfangsbuchstabe;
-        this.istLebendig = istLebendig;
     }
 
     public String getName() {
