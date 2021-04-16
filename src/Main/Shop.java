@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Shop {
     //TODO: YAGNI, Unterschied get, set, add etc. Methoden (return, parameter...)
     //Blumen
+    final Inventory inventory = new Inventory();
     private final FlowerWithNickname sunflower = new FlowerWithNickname("sunflower", "sunny", 'S', 6.35, 25, true, 14, true);
     private final FlowerWithNickname tulip = new FlowerWithNickname("tulip", "tulpi", 'T', 5.67, 30, true, 2, true);
     private final Flower lotus = new Flower("lotus", 'L', 3.60, 24, true, 3, true);
@@ -32,8 +33,9 @@ public class Shop {
                 System.out.println("next Step");
             } else {
                 for (int ii = 0; ii < flowers.length; ii++) {
+
                     if (flowers[ii].getName().equals(nextLine)) {
-                        flowers[ii].printInfo();
+                        inventory.printInfo(flowers[ii]);
                     }
                 }
             }

@@ -18,11 +18,11 @@ public class Buyer {
                 final Flower flower = shop.getFlower(nextLine);
 
                 if (flower != null) {
-                    flower.printInfo();
+
+                    shop.inventory.printInfo(flower);
                     System.out.println("Success");
-                    flower.setIsOwned(true);
-                    flower.addAmountInPossession(1);
-                    flower.printInfo();
+                    shop.inventory.addFlower(flower);
+                    shop.inventory.printInfo(flower);
                 }
             }
         }
