@@ -2,17 +2,13 @@ package Main;
 
 public class Blume {
 
-    //TODO: (2nd Step) Make all fields private --DONE
-//TODO: (7th Step) Search whole project for Yagni
     private final Bewaesserung bewaesserung = new Bewaesserung();
     private final Faktoren faktoren = new Faktoren();
-    private final Groesse groesse = new Groesse();
-    private boolean istGekauft;
     private String name;
     private int mengeImBesitz;
     private double kaufPreis;
     private char anfangsbuchstabe;
-    private boolean istLebendig = true;
+    private final boolean istLebendig;
 
     Blume() {
         this.istLebendig = true;
@@ -26,7 +22,6 @@ public class Blume {
         faktoren.setBeleuchtet(beleuchtet);
         bewaesserung.setLiter(wasserVerbrauch);
         this.istLebendig = istLebendig;
-        istGekauft = false;
         mengeImBesitz = 1;
     }
 
@@ -34,16 +29,11 @@ public class Blume {
         return name;
     }
 
-    public void setIstGekauft(final boolean istGekauft) {
-        this.istGekauft = istGekauft;
-    }
-
-    public void setMengeImBesitz(final int mengeImBesitz) {
-        this.mengeImBesitz = mengeImBesitz;
+    public void addMengeImBesitz(final int anzahlBlumen) {
+        this.mengeImBesitz += anzahlBlumen;
     }
 
     public void printInfo() {
-        // System.out.println("Nickname: " +);
         System.out.println("Initial letter: " + anfangsbuchstabe);
         System.out.println("Price: " + kaufPreis + " $");
         System.out.println("Light: " + getBeleuchtung());

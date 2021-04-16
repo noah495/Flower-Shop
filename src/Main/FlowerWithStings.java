@@ -9,7 +9,6 @@ public class BlumeMitStacheln extends Blume {
         this.stacheln = stacheln;
     }
 
-    //TODO: (6th Step) Yagni
     @Override
     public void printInfo() {
         System.out.println("Stings: " + stacheln);
