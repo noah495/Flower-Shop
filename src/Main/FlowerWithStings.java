@@ -1,22 +1,22 @@
 package Main;
 
-public class BlumeMitStacheln extends Blume {
+public class FlowerWithStings extends Flower {
 
-    private final int stacheln;
+    private final int stings;
 
-    public BlumeMitStacheln(final String name, final int stacheln, final char anfangsbuchstabe, final double preis, final int idealTemperatur, final boolean licht, final int wasserVerbrauch, final boolean istlebendig) {
-        super(name, anfangsbuchstabe, preis, idealTemperatur, licht, wasserVerbrauch, istlebendig);
-        this.stacheln = stacheln;
+    public FlowerWithStings(final String name, final int stings, final char initialLetter, final double price, final int recommendedTemperature, final boolean hasLight, final int waterUse, final boolean isAlive) {
+        super(name, initialLetter, price, recommendedTemperature, hasLight, waterUse, isAlive);
+        this.stings = stings;
     }
 
     @Override
     public void printInfo() {
-        System.out.println("Stings: " + stacheln);
+        System.out.println("Stings: " + stings);
         super.printInfo();
     }
 
     @Override
-    protected String istEssbar() {
+    protected String isEatable() {
         return "Yes";
     }
 }

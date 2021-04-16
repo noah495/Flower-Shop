@@ -1,6 +1,6 @@
 package Main;
 
-public class Bewaesserung {
+public class Watering {
     private int liter;
 
     public void giesskanne(final int giesskanneGroesse, final int einfüllgeschwindigkeit) {

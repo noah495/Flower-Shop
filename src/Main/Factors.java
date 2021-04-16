@@ -1,23 +1,23 @@
 package Main;
 
-public class Faktoren {
+public class Factors {
 
-    private boolean beleuchtet;
-    private int temperatur = 30;
+    private boolean hasLight;
+    private int temperature = 30;
 
-    public int getTemperatur() {
-        return temperatur;
+    public int getTemperature() {
+        return temperature;
     }
 
-    public void setTemperatur(final int temperatur) {
-        this.temperatur = temperatur;
+    public void setTemperature(final int temperature) {
+        this.temperature = temperature;
     }
 
-    public boolean isBeleuchtet() {
-        return beleuchtet;
+    public boolean isHasLight() {
+        return hasLight;
     }
 
-    public void setBeleuchtet(final boolean beleuchtet) {
-        this.beleuchtet = beleuchtet;
+    public void setHasLight(final boolean hasLight) {
+        this.hasLight = hasLight;
     }
 }

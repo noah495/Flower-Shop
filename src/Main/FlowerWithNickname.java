@@ -1,35 +1,35 @@
 package Main;
 
-public class BlumeMitSpitzname extends Blume {
-    private String spitzname;
+public class FlowerWithNickname extends Flower {
+    private String nickname;
 
-    BlumeMitSpitzname() {
+    FlowerWithNickname() {
     }
 
-    public BlumeMitSpitzname(final String name, final String spitzname, final char anfangsbuchstabe, final double preis, final int idealTemperatur, final boolean licht, final int wasserVerbrauch, final boolean istlebendig) {
-        super(name, anfangsbuchstabe, preis, idealTemperatur, licht, wasserVerbrauch, istlebendig);
-        this.spitzname = spitzname;
+    public FlowerWithNickname(final String name, final String nickname, final char initialLetter, final double price, final int recommendedTemperature, final boolean hasLight, final int waterUse, final boolean isAlive) {
+        super(name, initialLetter, price, recommendedTemperature, hasLight, waterUse, isAlive);
+        this.nickname = nickname;
     }
 
-    public String getSpitzname() {
+    public String getNickname() {
         spitznameCheck();
-        return spitzname;
+        return nickname;
     }
 
     public void spitznameCheck() {
-        if (spitzname == null) {
-            this.spitzname = "-";
+        if (nickname == null) {
+            this.nickname = "-";
         }
     }
 
     @Override
     public void printInfo() {
-        System.out.println("Nickname: " + spitzname);
+        System.out.println("Nickname: " + nickname);
         super.printInfo();
     }
 
     @Override
-    protected String istVerkaufbar() {
+    protected String isSellable() {
         return "Yes";
     }
 }

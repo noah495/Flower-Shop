@@ -5,16 +5,16 @@ public class Main {
     public static void main(final String[] args) throws InterruptedException {
         final Text text = new Text();
         final Shop shop = new Shop();
-        final Kaeufer kaeufer = new Kaeufer();
+        final Buyer buyer = new Buyer();
 
-        final Faktoren faktoren = new Faktoren();
+        final Factors factors = new Factors();
         shop.infoCheck();
-        kaeufer.blumeKaufen();
+        buyer.buyFlowers();
         shop.infoCheck();
         text.start();
         text.driving();
         text.startShop();
-        System.out.println(faktoren.getTemperatur());
+        System.out.println(factors.getTemperature());
     }
 }
 

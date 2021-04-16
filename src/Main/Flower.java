@@ -1,62 +1,55 @@
 package Main;
 
-public class Blume {
+public class Flower {
 
-    private final Bewaesserung bewaesserung = new Bewaesserung();
-    private final Faktoren faktoren = new Faktoren();
+    private final Watering watering = new Watering();
+    private final Factors factors = new Factors();
+    private final boolean isAlive;
     private String name;
-    private int mengeImBesitz;
-    private double kaufPreis;
-    private char anfangsbuchstabe;
-    private final boolean istLebendig;
+    private int amountInPossession;
+    private double buyPrice;
+    private char InitialLetter;
+    private boolean isOwned;
 
-    Blume() {
-        this.istLebendig = true;
+    Flower() {
+        this.isAlive = true;
     }
 
-    Blume(final String name, final char anfangsbuchstabe, final double preis, final int idealeTemperatur, final boolean beleuchtet, final int wasserVerbrauch, final boolean istLebendig) {
+    Flower(final String name, final char initialLetter, final double buyPrice, final int recommendedTemperature, final boolean hasLight, final int waterUse, final boolean isAlive) {
         this.name = name;
-        this.kaufPreis = preis;
-        this.anfangsbuchstabe = anfangsbuchstabe;
-        faktoren.setTemperatur(idealeTemperatur);
-        faktoren.setBeleuchtet(beleuchtet);
-        bewaesserung.setLiter(wasserVerbrauch);
-        this.istLebendig = istLebendig;
-        mengeImBesitz = 1;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void addMengeImBesitz(final int anzahlBlumen) {
-        this.mengeImBesitz += anzahlBlumen;
+        this.buyPrice = buyPrice;
+        this.InitialLetter = initialLetter;
+        factors.setTemperature(recommendedTemperature);
+        factors.setHasLight(hasLight);
+        watering.setLiter(waterUse);
+        this.isAlive = isAlive;
+        isOwned = false;
     }
 
     public void printInfo() {
-        System.out.println("Initial letter: " + anfangsbuchstabe);
-        System.out.println("Price: " + kaufPreis + " $");
-        System.out.println("Light: " + getBeleuchtung());
-        System.out.println("Liter a week required to water: " + bewaesserung.getLiter());
+        System.out.println("Initial letter: " + InitialLetter);
+        System.out.println("Price: " + buyPrice + " $");
+        System.out.println("Light: " + getLight());
+        System.out.println("Liter a week required to water: " + watering.getLiter());
         System.out.println("Status: " + getStatus());
-        System.out.println("Is eatable: " + istEssbar());
-        System.out.println("Is sellable: " + istVerkaufbar());
-        System.out.println("In possession: " + mengeImBesitz);
+        System.out.println("Is eatable: " + isEatable());
+        System.out.println("Is sellable: " + isSellable());
+        System.out.println("In possession: " + amountInPossession);
     }
 
-    private String getBeleuchtung() {
-        final String beleuchtung;
-        if (faktoren.isBeleuchtet()) {
-            beleuchtung = "Required";
+    private String getLight() {
+        final String light;
+        if (factors.isHasLight()) {
+            light = "Required";
         } else {
-            beleuchtung = "not Required";
+            light = "not Required";
         }
-        return beleuchtung;
+        return light;
     }
 
     private String getStatus() {
         final String status;
-        if (istLebendig) {
+        if (isAlive) {
             status = "Alive";
         } else {
             status = "Dead";
@@ -64,12 +57,24 @@ public class Blume {
         return status;
     }
 
-    protected String istEssbar() {
+    protected String isEatable() {
         return "No";
     }
 
-    protected String istVerkaufbar() {
+    protected String isSellable() {
         return "No";
+    }
+
+    public void setIsOwned(final boolean isOwned) {
+        this.isOwned = isOwned;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addAmountInPossession(final int amountInPossession) {
+        this.amountInPossession += amountInPossession;
     }
 }
 

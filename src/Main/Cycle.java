@@ -1,5 +1,5 @@
 package Main;
 
-public class Zyklus {
+public class Cycle {
 
 }

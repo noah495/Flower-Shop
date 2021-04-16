@@ -102,17 +102,4 @@ public class Text {
 
         TimeUnit.SECONDS.sleep(5);
     }
-
-    public void flowerImg() {
-        System.out.println(
-                "     /\\^/`\\\n" +
-                        "    | \\/   |\n" +
-                        "    | |    |\n" +
-                        "    \\ \\    /\n" +
-                        "     '\\\\//'\n" +
-                        "   |\\  ||  |\\\n" +
-                        "    \\ \\||/ /\n" +
-                        "     `\\\\//`\n" +
-                        "    ^^^^^^^^");
-    }
 }

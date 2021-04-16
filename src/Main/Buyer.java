@@ -2,7 +2,7 @@ package Main;
 
 import java.util.Scanner;
 
-public class Kaeufer {
+public class Buyer {
     private final Shop shop = new Shop();
 
     public void buyFlowers() {
@@ -20,7 +20,6 @@ public class Kaeufer {
                 if (flower != null) {
                     flower.printInfo();
                     System.out.println("Success");
-
                     flower.setIsOwned(true);
                     flower.addAmountInPossession(1);
                     flower.printInfo();
