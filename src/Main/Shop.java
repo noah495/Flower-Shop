@@ -35,6 +35,7 @@ public class Shop {
                 for (int ii = 0; ii < flowers.length; ii++) {
 
                     if (flowers[ii].getName().equals(nextLine)) {
+                        inventory.addFlower(flowers[ii]);
                         inventory.printInfo(flowers[ii]);
                     }
                 }
