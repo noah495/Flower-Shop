@@ -6,7 +6,6 @@ public class Flower {
     private final Factors factors = new Factors();
     private final boolean isAlive;
     private String name;
-    private int amountInPossession;
     private double buyPrice;
     private char InitialLetter;
     private boolean isOwned;
@@ -34,8 +33,9 @@ public class Flower {
         System.out.println("Status: " + getStatus());
         System.out.println("Is eatable: " + isEatable());
         System.out.println("Is sellable: " + isSellable());
-        System.out.println("In possession: " + amountInPossession);
     }
+
+
 
     private String getLight() {
         final String light;
@@ -73,9 +73,4 @@ public class Flower {
         return name;
     }
 
-    public void addAmountInPossession(final int amountInPossession) {
-        this.amountInPossession += amountInPossession;
-    }
 }
-
-
