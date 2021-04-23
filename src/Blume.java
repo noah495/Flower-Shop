@@ -1,4 +1,5 @@
 public class Blume {
+    String name;
     double preis;
     int groesseInCm;
     boolean istLebendig;
@@ -10,7 +11,8 @@ public class Blume {
         this.istLebendig = true;
     }
 
-    public Blume(final double preis, final int groesseInCm, final boolean istLebendig, final int bevorzugteTemperatur, final boolean brauchtTageslicht) {
+    public Blume(String name,final double preis, final int groesseInCm, final boolean istLebendig, final int bevorzugteTemperatur, final boolean brauchtTageslicht) {
+        this.name = name;
         this.preis = preis;
         this.groesseInCm = groesseInCm;
         this.istLebendig = istLebendig;
