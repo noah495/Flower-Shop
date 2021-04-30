@@ -14,8 +14,30 @@ public class BlumenLaden {
         this.verfuegbareBlumenHaendler = blumenHaendlers;
 
         this.inventar = new Inventar();
-        final BlumenBuch blumenDerAlpen = new BlumenBuch();
-        inventar.setBlumenBuch(blumenDerAlpen);
+    }
+
+    public ArrayList<Blume> kaufeBlumen(final String blumenName, final int anzahl) {
+        return inventar.getBlumeZumVerkaufen(blumenName, anzahl);
+    }
+
+    public boolean isBlumenVerfuegbar(final String blumenName, final int anzahl) {
+        return inventar.isBlumenVerfuegbar(blumenName, anzahl);
+    }
+
+    public String getLadenName() {
+        return ladenName;
+    }
+
+    public Inventar getInventar() {
+        return inventar;
+    }
+
+    public double getGeld() {
+        return inventar.getFluessigesGeldmittel();
+    }
+
+    public void setGeld(final double geld) {
+        inventar.setFluessigesGeldmittel(geld);
     }
 
     // Bei Kunde anwenden
@@ -45,6 +67,10 @@ public class BlumenLaden {
             gekaufteBlumen.add(getBlumenImBesitz().get(i));
         }
         return gekaufteBlumen;
+    }
+
+    public void printInformation(final String blumeName) {
+        inventar.printBlumenInfo(blumeName);
     }
 }
 

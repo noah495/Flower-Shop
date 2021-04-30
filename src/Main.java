@@ -23,9 +23,16 @@ public class Main {
 
         final Kunde kunde = new Kunde("Joseph", verfuegbareBlumenLaden);
 
-        blumenLadenGiswilerBergblume.bestelleBlumen(5, "rose");
+        blumenLadenGiswilerBergblume.bestelleBlumen(5, "tulpe");
         blumenLadenGiswilerBergblume.bestelleBlumen(300, "rose");
-        kunde.kaufeBlume(6, "tulpe");
+
+        blumenLadenGiswilerBergblume.getGeld();
+
+        kunde.kaufeBlume(5, "tulpe");
+        blumenLadenGiswilerBergblume.getInventar().printBlumenInfo("tulpe");
+        blumenLadenGiswilerBergblume.getInventar().printBlumen();
+        blumenLadenGiswilerBergblume.printInformation("rose");
+        blumenLadenGiswilerBergblume.getGeld();
     }
 }
 
