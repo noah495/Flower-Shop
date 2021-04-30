@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(final String[] args) {
-        final Inventar inventar = new Inventar();
         final BlumenHaendler blumenHaendlerHansMitTulpe = new BlumenHaendler("tulpe");
         final BlumenHaendler blumenHaendlerMaxMitRose = new BlumenHaendler("rose");
         final BlumenHaendler blumenHaendlerOliviaMitSonnenblume = new BlumenHaendler("sonnenblume");
@@ -24,9 +23,9 @@ public class Main {
 
         final Kunde kunde = new Kunde("Joseph", verfuegbareBlumenLaden);
 
-        blumenLadenGiswilerBergblume.bestelleBlumen(20, "rose");
-        blumenLadenGiswilerBergblume.bestelleBlumen(300, "tulpe");
-        kunde.kaufeBlume(2, "rose");
+        blumenLadenGiswilerBergblume.bestelleBlumen(5, "rose");
+        blumenLadenGiswilerBergblume.bestelleBlumen(300, "rose");
+        kunde.kaufeBlume(6, "tulpe");
     }
 }
 
