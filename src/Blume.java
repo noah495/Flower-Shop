@@ -1,55 +1,63 @@
 public class Blume {
-    private final boolean istLebendig;
+    private final boolean isAlive;
     private String name;
-    private double preis;
-    private int groesseInCm;
-    private int bevorzugteTemperatur;
-    private boolean brauchtTageslicht;
-    private boolean absterbend;
+    private double price;
+    private int sizeInCm;
+    private int recommendedTemperature;
+    private boolean needsLight;
+    private boolean isDying;
 
     Blume() {
-        this.istLebendig = true;
+        this.isAlive = true;
     }
 
     Blume(final String name, final double preis, final int groesseInCm, final boolean istLebendig, final int bevorzugteTemperatur, final boolean brauchtTageslicht) {
         this.name = name;
-        this.preis = preis;
-        this.groesseInCm = groesseInCm;
-        this.istLebendig = istLebendig;
-        this.bevorzugteTemperatur = bevorzugteTemperatur;
-        this.brauchtTageslicht = brauchtTageslicht;
+        this.price = preis;
+        this.sizeInCm = groesseInCm;
+        this.isAlive = istLebendig;
+        this.recommendedTemperature = bevorzugteTemperatur;
+        this.needsLight = brauchtTageslicht;
     }
 
-    public double getPreis() {
-        return preis;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPreis(final double preis) {
-        this.preis = preis;
+    public void setPrice(final double price) {
+        this.price = price;
     }
 
-    public int getGroesseInCm() {
-        return groesseInCm;
+    public String getLightRequired() {
+        if (needsLight) {
+            return "Ja";
+        } else {
+            return "Nein";
+        }
     }
 
-    public boolean isIstLebendig() {
-        return istLebendig;
+    public int getSizeInCm() {
+        return sizeInCm;
     }
 
-    public int getBevorzugteTemperatur() {
-        return bevorzugteTemperatur;
+    public boolean isAlive() {
+        return isAlive;
     }
 
-    public boolean isBrauchtTageslicht() {
-        return brauchtTageslicht;
+    public int getRecommendedTemperature() {
+        return recommendedTemperature;
     }
 
-    public boolean isAbsterbend() {
-        return absterbend;
+    public boolean isNeedsLight() {
+        return needsLight;
     }
 
-    public void setAbsterbend(final boolean absterbend) {
-        this.absterbend = absterbend;
+    public boolean isDying() {
+        return isDying;
+    }
+
+    public void setDying(final boolean dying) {
+        this.isDying = dying;
     }
 
     public String getName() {
@@ -57,6 +65,6 @@ public class Blume {
     }
 
     public void wachsen(final int wachstumInCm) {
-        this.groesseInCm += wachstumInCm;
+        this.sizeInCm += wachstumInCm;
     }
 }

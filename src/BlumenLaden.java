@@ -16,12 +16,20 @@ public class BlumenLaden {
         this.inventar = new Inventar();
     }
 
-    public ArrayList<Blume> kaufeBlumen(final String blumenName, final int anzahl) {
-        return inventar.getBlumeZumVerkaufen(blumenName, anzahl);
+    public void getBlumenInfo(final String blumenName) {
+        inventar.printBlumenInfo(blumenName);
+    }
+
+    public ArrayList<Blume> verkaufeBlumen(final String blumenName, final int anzahl) {
+        return inventar.getBlumenZumVerkaufen(blumenName, anzahl);
     }
 
     public boolean isBlumenVerfuegbar(final String blumenName, final int anzahl) {
         return inventar.isBlumenVerfuegbar(blumenName, anzahl);
+    }
+
+    public boolean isBlumenVorhanden(final String blumenName) {
+        return inventar.isBlumenVerfuegbar(blumenName, 1);
     }
 
     public String getLadenName() {
@@ -30,6 +38,10 @@ public class BlumenLaden {
 
     public Inventar getInventar() {
         return inventar;
+    }
+
+    public ArrayList<Blume> getBlumeImBesitz() {
+        return inventar.getBlumenImBesitz();
     }
 
     public double getGeld() {
@@ -42,15 +54,20 @@ public class BlumenLaden {
 
     // Bei Kunde anwenden
     public void bestelleBlumen(final int anzahl, final String blumenName) {
-        verfuegbareBlumenHaendler.forEach(blumenHaendler -> {
+        for (final BlumenHaendler blumenHaendler : verfuegbareBlumenHaendler) {
             if (blumenHaendler.getSpezialisierteBlume().equals(blumenName)) {
                 final ArrayList<Blume> bestellteBlumen = blumenHaendler.bestelle(anzahl);
                 System.out.println("Blume erfolgreich bestellt");
                 inventar.addBlumen(bestellteBlumen);
                 System.out.println("Blumen erfolgreich dem Inventar hinzugefügt");
                 System.out.println(bestellteBlumen.size());
+                return;
             }
-        });
+        }
+    }
+
+    public String gewählteBlume(final int stelle) {
+        return inventar.chooseBlume(stelle);
     }
 
     public ArrayList<Blume> getBestellteBlumen() {

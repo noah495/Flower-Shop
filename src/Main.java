@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Main {
+
     public static void main(final String[] args) {
         final BlumenHaendler blumenHaendlerHansMitTulpe = new BlumenHaendler("tulpe");
         final BlumenHaendler blumenHaendlerMaxMitRose = new BlumenHaendler("rose");
@@ -28,11 +29,16 @@ public class Main {
 
         blumenLadenGiswilerBergblume.getGeld();
 
-        kunde.kaufeBlume(5, "tulpe");
+        final Blume pickedBlume = kunde.pickRandomBlumeImBlumenLaden("Giswiler Bergblume");
+
+        final double randomMenge = Math.random() * 10;
+        final int menge = (int) randomMenge;
+
+        kunde.kaufeBlume(menge, pickedBlume.getName());
         blumenLadenGiswilerBergblume.getInventar().printBlumenInfo("tulpe");
         blumenLadenGiswilerBergblume.getInventar().printBlumen();
-        blumenLadenGiswilerBergblume.printInformation("rose");
         blumenLadenGiswilerBergblume.getGeld();
+        kunde.getBlumenInfo("rose");
     }
 }
 

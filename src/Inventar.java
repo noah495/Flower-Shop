@@ -4,18 +4,21 @@ public class Inventar {
     private final ArrayList<Blume> blumenImBesitz = new ArrayList<>();
     private double fluessigesGeldmittel = 223400;
 
+    //TODO: printBlumenInfo return String
     public void printBlumenInfo(final String blumenName) {
         for (final Blume blume : blumenImBesitz) {
             if (blume.getName().equals(blumenName)) {
                 System.out.println("Information zur " + blume.getName());
-                System.out.println("Ideale Temperatur: " + blume.getBevorzugteTemperatur());
-                System.out.println("Preis: " + blume.getPreis());
+                System.out.println("Ideale Temperatur: " + blume.getRecommendedTemperature());
+                System.out.println("Preis: " + blume.getPrice());
+                System.out.println("Licht nötig: " + blume.getLightRequired());
+                System.out.println("Kaufgrösse: " + blume.getSizeInCm());
                 break;
             }
         }
     }
 
-    public ArrayList<Blume> getBlumeZumVerkaufen(final String blumenName, final int anzahl) {
+    public ArrayList<Blume> getBlumenZumVerkaufen(final String blumenName, final int anzahl) {
         final ArrayList<Blume> blumen = new ArrayList<>();
         for (final Blume blume : blumenImBesitz) {
             if (blume.getName().equals(blumenName)) {
@@ -46,6 +49,21 @@ public class Inventar {
         return blumenImBesitz;
     }
 
+    public int getAnzahlBlumen() {
+        final int getSizeBlumen = getBlumenImBesitz().size();
+        return getSizeBlumen;
+    }
+
+    //TODO: In Englisch umbenennen
+    public String chooseBlume(final int stelle) {
+        if (blumenImBesitz.size() >= stelle) {
+            final Blume gewählteBlume = blumenImBesitz.get(stelle);
+            final String blumenName = gewählteBlume.getName();
+            return blumenName;
+        }
+        return null;
+    }
+
     public void addBlumen(final ArrayList<Blume> blumen) {
         blumenImBesitz.addAll(blumen);
     }
@@ -74,5 +92,3 @@ public class Inventar {
     }*/
 }
 
-//TODO: Mehr Blumen erzeugen; Kunde --> kauft in Blumenladen Giswil 3x Tulpen; DONE;
-//TODO: Freitag: Methodenaufruf auf Objekt und verwendung des Rückgabewertes;
