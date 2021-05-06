@@ -3,42 +3,42 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(final String[] args) {
-        final BlumenHaendler blumenHaendlerHansMitTulpe = new BlumenHaendler("tulpe");
-        final BlumenHaendler blumenHaendlerMaxMitRose = new BlumenHaendler("rose");
-        final BlumenHaendler blumenHaendlerOliviaMitSonnenblume = new BlumenHaendler("sonnenblume");
-        final BlumenHaendler blumenHaendlerAnaMitLoewenzahn = new BlumenHaendler("loewenzahn");
-        final ArrayList<BlumenHaendler> verfuegbareBlumenHaendler = new ArrayList<>();
-        verfuegbareBlumenHaendler.add(blumenHaendlerHansMitTulpe);
-        verfuegbareBlumenHaendler.add(blumenHaendlerMaxMitRose);
-        verfuegbareBlumenHaendler.add(blumenHaendlerOliviaMitSonnenblume);
-        verfuegbareBlumenHaendler.add(blumenHaendlerAnaMitLoewenzahn);
+        final FlowerDealer FlowerDealerHansWithTulip = new FlowerDealer("tulip");
+        final FlowerDealer FlowerDealerMaxWithRose = new FlowerDealer("rose");
+        final FlowerDealer FlowerDealerOliviaWithSunflower = new FlowerDealer("sunflower");
+        final FlowerDealer flowerDealerAnaWithLotus = new FlowerDealer("lotus");
+        final ArrayList<FlowerDealer> availableFlowerDealer = new ArrayList<>();
+        availableFlowerDealer.add(FlowerDealerHansWithTulip);
+        availableFlowerDealer.add(FlowerDealerMaxWithRose);
+        availableFlowerDealer.add(FlowerDealerOliviaWithSunflower);
+        availableFlowerDealer.add(flowerDealerAnaWithLotus);
 
-        final BlumenLaden blumenLadenGiswilerBergblume =
-                new BlumenLaden("Giswiler Bergblume", "Seestrasse 4, Giswil", verfuegbareBlumenHaendler);
-        final BlumenLaden blumenLadenRoeoesliUusAllerWelt =
-                new BlumenLaden("Röösli uus aller Welt", "Bahnhofstrasse 49, Weggis", verfuegbareBlumenHaendler);
+        final FlowerShop flowerShopGiswilerMountainFlower =
+                new FlowerShop("Giswiler Mountain Flower", "Seestrasse 4, Giswil", availableFlowerDealer);
+        final FlowerShop flowerShopRosesFromTheWholeWorld =
+                new FlowerShop("Roses from the whole world", "Bahnhofstrasse 49, Weggis", availableFlowerDealer);
 
-        final ArrayList<BlumenLaden> verfuegbareBlumenLaden = new ArrayList<>();
-        verfuegbareBlumenLaden.add(blumenLadenGiswilerBergblume);
-        verfuegbareBlumenLaden.add(blumenLadenRoeoesliUusAllerWelt);
+        final ArrayList<FlowerShop> availableFlowerShops = new ArrayList<>();
+        availableFlowerShops.add(flowerShopGiswilerMountainFlower);
+        availableFlowerShops.add(flowerShopRosesFromTheWholeWorld);
 
-        final Kunde kunde = new Kunde("Joseph", verfuegbareBlumenLaden);
+        final Costumer costumer1 = new Costumer("Phil", availableFlowerShops);
 
-        blumenLadenGiswilerBergblume.bestelleBlumen(5, "tulpe");
-        blumenLadenGiswilerBergblume.bestelleBlumen(300, "rose");
+        flowerShopGiswilerMountainFlower.orderFlower(5, "tulip");
+        flowerShopGiswilerMountainFlower.orderFlower(300, "rose");
 
-        blumenLadenGiswilerBergblume.getGeld();
+        flowerShopGiswilerMountainFlower.getCurrency();
 
-        final Blume pickedBlume = kunde.pickRandomBlumeImBlumenLaden("Giswiler Bergblume");
+        final Flower pickedFlower = costumer1.pickRandomFlowerinFlowerShop("Giswiler Mountain Flower");
 
-        final double randomMenge = Math.random() * 10;
-        final int menge = (int) randomMenge;
+        final double randomAmount = Math.random() * 10;
+        final int amount = (int) randomAmount;
 
-        kunde.kaufeBlume(menge, pickedBlume.getName());
-        blumenLadenGiswilerBergblume.getInventar().printBlumenInfo("tulpe");
-        blumenLadenGiswilerBergblume.getInventar().printBlumen();
-        blumenLadenGiswilerBergblume.getGeld();
-        kunde.getBlumenInfo("rose");
+        costumer1.buyFlower(amount, pickedFlower.getName());
+        flowerShopGiswilerMountainFlower.getInventory().printFlowerInformation("tulip");
+        flowerShopGiswilerMountainFlower.getInventory().printBlumen();
+        flowerShopGiswilerMountainFlower.getCurrency();
+        costumer1.getFlowerInformation("rose");
     }
 }
 
