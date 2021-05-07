@@ -8,8 +8,13 @@ public class Inventory {
         return currency;
     }
 
-    public void setCurrency(final double money) {
-        this.currency = money;
+    public void subtractCurrency(final double money) {
+        if (money <= currency) {
+            currency -= money;
+            System.out.println("Your new balance is: " + currency);
+        } else {
+            System.out.println("You're too broke");
+        }
     }
 
     public ArrayList<Flower> getFlowerInPossession() {
@@ -83,7 +88,5 @@ public class Inventory {
         }
         AvailableFlowers.forEach(System.out::println);
     }
-
-
 }
 

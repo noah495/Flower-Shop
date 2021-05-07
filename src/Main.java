@@ -14,7 +14,7 @@ public class Main {
         availableFlowerDealer.add(flowerDealerAnaWithLotus);
 
         final FlowerShop flowerShopGiswilerMountainFlower =
-                new FlowerShop("Giswiler Mountain Flower", "Seestrasse 4, Giswil", availableFlowerDealer);
+                new FlowerShop("Giswiler", "Seestrasse 4, Giswil", availableFlowerDealer);
         final FlowerShop flowerShopRosesFromTheWholeWorld =
                 new FlowerShop("Roses from the whole world", "Bahnhofstrasse 49, Weggis", availableFlowerDealer);
 
@@ -29,7 +29,7 @@ public class Main {
 
         flowerShopGiswilerMountainFlower.getCurrency();
 
-        final Flower pickedFlower = costumer1.pickRandomFlowerinFlowerShop("Giswiler Mountain Flower");
+        final Flower pickedFlower = costumer1.pickRandomFlowerinFlowerShop("Giswiler");
 
         final double randomAmount = Math.random() * 10;
         final int amount = (int) randomAmount;
