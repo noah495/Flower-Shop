@@ -30,7 +30,7 @@ public class FlowerShop {
     public double getCurrency() {
         return inventory.getCurrency();
     }
-    
+
     public void getFlowerInformation(final String flowerName) {
         inventory.printFlowerInformation(flowerName);
     }
@@ -64,12 +64,20 @@ public class FlowerShop {
         }
     }
 
+    public double getPurchasePrice(final ArrayList<Flower> flowers) {
+        double price = 0;
+        for (final Flower flower : orderedFlowers) {
+            price += flower.getPrice();
+        }
+        return price;
+    }
+
     public void payFlowers(final ArrayList<Flower> orderedFlowers) {
         double price = 0;
         for (final Flower flower : orderedFlowers) {
             price += flower.getPrice();
         }
-        System.out.println("Ordered " + orderedFlowers.size() + " flowers of type " + orderedFlowers.get(0).getName() +" (" + price + "$)");
+        System.out.println("Ordered " + orderedFlowers.size() + " flowers of type " + orderedFlowers.get(0).getName() + " (" + price + "$)");
         inventory.subtractCurrency(price);
     }
 

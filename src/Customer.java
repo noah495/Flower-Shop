@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Costumer {
+public class Customer {
     private final ArrayList<FlowerShop> availableFlowerShops;
     private final ArrayList<Flower> boughtFlowers = new ArrayList<>();
 
     private final String name;
 
-    Costumer(final String costumerName, final ArrayList<FlowerShop> flowerShops) {
+    Customer(final String costumerName, final ArrayList<FlowerShop> flowerShops) {
         this.name = costumerName;
         this.availableFlowerShops = flowerShops;
     }
@@ -38,18 +38,19 @@ public class Costumer {
 
     public void buyFlower(final int amount, final String flowerName) {
         boolean isBought = false;
-        for (final FlowerShop flowerShops : availableFlowerShops) {
-            final boolean flowerAvailable = flowerShops.isFlowerAvailable(flowerName, amount);
+        for (final FlowerShop flowerShop : availableFlowerShops) {
+            final boolean flowerAvailable = flowerShop.isFlowerAvailable(flowerName, amount);
             if (flowerAvailable) {
                 System.out.println("Flower available");
-                final ArrayList<Flower> currentBoughtFlowers = flowerShops.sellFlowers(flowerName, amount);
+                flowerShop.getPurchasePrice()
+                final ArrayList<Flower> currentBoughtFlowers = flowerShop.sellFlowers(flowerName, amount);
                 addBlumen(currentBoughtFlowers);
-                System.out.println("Flower bought successfully");
+                System.out.println("Flower bought successfully\n");
                 System.out.println(boughtFlowers.size());
                 isBought = true;
                 break;
             } else {
-                System.out.println("The Flowershop " + flowerShops.getShopName() + " does not have the flower you wish. Please go to the next shop");
+                System.out.println("The Flowershop " + flowerShop.getShopName() + " does not have the flower you wish. Please go to the next shop");
             }
         }
         if (isBought == false) {

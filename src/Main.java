@@ -13,21 +13,21 @@ public class Main {
         availableFlowerDealer.add(FlowerDealerOliviaWithSunflower);
         availableFlowerDealer.add(flowerDealerAnaWithLotus);
 
-        final FlowerShop flowerShopGiswilerMountainFlower =
+        final FlowerShop flowerShopGiswiler =
                 new FlowerShop("Giswiler", "Seestrasse 4, Giswil", availableFlowerDealer);
         final FlowerShop flowerShopRosesFromTheWholeWorld =
                 new FlowerShop("Roses from the whole world", "Bahnhofstrasse 49, Weggis", availableFlowerDealer);
 
         final ArrayList<FlowerShop> availableFlowerShops = new ArrayList<>();
-        availableFlowerShops.add(flowerShopGiswilerMountainFlower);
+        availableFlowerShops.add(flowerShopGiswiler);
         availableFlowerShops.add(flowerShopRosesFromTheWholeWorld);
 
-        final Costumer costumer1 = new Costumer("Phil", availableFlowerShops);
+        final Customer costumer1 = new Customer("Phil", availableFlowerShops);
 
-        flowerShopGiswilerMountainFlower.orderFlower(5, "tulip");
-        flowerShopGiswilerMountainFlower.orderFlower(30, "rose");
+        flowerShopGiswiler.orderFlower(5, "tulip");
+        flowerShopGiswiler.orderFlower(30, "rose");
 
-        flowerShopGiswilerMountainFlower.getCurrency();
+        flowerShopGiswiler.getCurrency();
 
         final Flower pickedFlower = costumer1.pickRandomFlowerinFlowerShop("Giswiler");
 
@@ -35,9 +35,9 @@ public class Main {
         final int amount = (int) randomAmount;
 
         costumer1.buyFlower(amount, pickedFlower.getName());
-        flowerShopGiswilerMountainFlower.getInventory().printFlowerInformation("tulip");
-        flowerShopGiswilerMountainFlower.getInventory().printBlumen();
-        flowerShopGiswilerMountainFlower.getCurrency();
+        flowerShopGiswiler.getInventory().printFlowerInformation("tulip");
+        flowerShopGiswiler.getInventory().printBlumen();
+        flowerShopGiswiler.getCurrency();
         costumer1.getFlowerInformation("rose");
     }
 }
