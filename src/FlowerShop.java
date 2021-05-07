@@ -55,11 +55,10 @@ public class FlowerShop {
         for (final FlowerDealer flowerDealer : availableFlowerDealers) {
             if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
                 final ArrayList<Flower> orderedFlowers = flowerDealer.order(amount);
-                System.out.println("Flower ordered successfully");
+                System.out.println("Your current account balance is " + inventory.getCurrency() + "$");
                 inventory.addFlowers(orderedFlowers);
+
                 payFlowers(orderedFlowers);
-                System.out.println("Flower successfully added to Inventory");
-                System.out.println(orderedFlowers.size());
                 return;
             }
         }
@@ -70,6 +69,7 @@ public class FlowerShop {
         for (final Flower flower : orderedFlowers) {
             price += flower.getPrice();
         }
+        System.out.println("Ordered " + orderedFlowers.size() + " flowers of type " + orderedFlowers.get(0).getName() +" (" + price + "$)");
         inventory.subtractCurrency(price);
     }
 
