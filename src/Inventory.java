@@ -46,7 +46,6 @@ public class Inventory {
     public int getAmountFlowers() {
         final int getSizeFlower = getFlowerInPossession().size();
         return getSizeFlower;
-        return flowerName;
     }
 
     public void addFlowers(final ArrayList<Flower> flowers) {
@@ -84,5 +83,7 @@ public class Inventory {
         }
         AvailableFlowers.forEach(System.out::println);
     }
+
+
 }
 
