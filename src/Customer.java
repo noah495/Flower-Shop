@@ -42,7 +42,7 @@ public class Customer {
             final boolean flowerAvailable = flowerShop.isFlowerAvailable(flowerName, amount);
             if (flowerAvailable) {
                 System.out.println("Flower available");
-                flowerShop.getPurchasePrice()
+                flowerShop.getPurchasePrice(flowerName, amount);
                 final ArrayList<Flower> currentBoughtFlowers = flowerShop.sellFlowers(flowerName, amount);
                 addBlumen(currentBoughtFlowers);
                 System.out.println("Flower bought successfully\n");

@@ -11,7 +11,7 @@ public class Inventory {
     public void subtractCurrency(final double money) {
         if (money <= currency) {
             currency -= money;
-            System.out.println("Your new balance is: " + currency + "$");
+            System.out.println("Your new balance is: " + currency + "$\n");
         } else {
             System.out.println("You're too broke");
         }
