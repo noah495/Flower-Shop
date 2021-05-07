@@ -15,22 +15,6 @@ public class FlowerShop {
         this.inventory = new Inventory();
     }
 
-    public void getFlowerInformation(final String flowerName) {
-        inventory.printFlowerInformation(flowerName);
-    }
-
-    public ArrayList<Flower> sellFlowers(final String flowerName, final int amount) {
-        return inventory.getFlowersToSell(flowerName, amount);
-    }
-
-    public boolean isFlowerAvailable(final String flowerName, final int amount) {
-        return inventory.isFlowerAvailable(flowerName, amount);
-    }
-
-    public boolean isFlowerExisting(final String flowerName) {
-        return inventory.isFlowerAvailable(flowerName, 1);
-    }
-
     public String getShopName() {
         return shopName;
     }
@@ -51,6 +35,26 @@ public class FlowerShop {
         inventory.setCurrency(money);
     }
 
+    public void getFlowerInformation(final String flowerName) {
+        inventory.printFlowerInformation(flowerName);
+    }
+
+    public ArrayList<Flower> getOrderedFlowers() {
+        return orderedFlowers;
+    }
+
+    public ArrayList<Flower> getFlowersInPossession() {
+        return inventory.getFlowerInPossession();
+    }
+
+    public boolean isFlowerExisting(final String flowerName) {
+        return inventory.isFlowerAvailable(flowerName, 1);
+    }
+
+    public boolean isFlowerAvailable(final String flowerName, final int amount) {
+        return inventory.isFlowerAvailable(flowerName, amount);
+    }
+
     public void orderFlower(final int amount, final String flowerName) {
         for (final FlowerDealer flowerDealer : availableFlowerDealers) {
             if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
@@ -64,16 +68,12 @@ public class FlowerShop {
         }
     }
 
+    public ArrayList<Flower> sellFlowers(final String flowerName, final int amount) {
+        return inventory.getFlowersToSell(flowerName, amount);
+    }
+
     public String choosenFlower(final int digit) {
         return inventory.chooseFlower(digit);
-    }
-
-    public ArrayList<Flower> getOrderedFlowers() {
-        return orderedFlowers;
-    }
-
-    public ArrayList<Flower> getFlowersInPossession() {
-        return inventory.getFlowerInPossession();
     }
 
     public ArrayList<Flower> order(final int amount) {

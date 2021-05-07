@@ -9,12 +9,8 @@ public class FlowerDealer {
         createFlowers(3000);
     }
 
-    public ArrayList<Flower> order(final int amount) {
-        final ArrayList<Flower> flowersToDeliver = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            flowersToDeliver.add(FlowerAtDealer.get(i));
-        }
-        return flowersToDeliver;
+    public String getSpecialisedFlower() {
+        return specialisedFlower;
     }
 
     private void createFlowers(final int amount) {
@@ -42,8 +38,12 @@ public class FlowerDealer {
         }
     }
 
-    public String getSpecialisedFlower() {
-        return specialisedFlower;
+    public ArrayList<Flower> order(final int amount) {
+        final ArrayList<Flower> flowersToDeliver = new ArrayList<>();
+        for (int i = 0; i < amount; i++) {
+            flowersToDeliver.add(FlowerAtDealer.get(i));
+        }
+        return flowersToDeliver;
     }
 }
 

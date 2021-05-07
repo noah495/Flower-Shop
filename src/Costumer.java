@@ -11,6 +11,31 @@ public class Costumer {
         this.availableFlowerShops = flowerShops;
     }
 
+    public void getFlowerInformation(final String flowerName) {
+        for (final FlowerShop flowerShop : availableFlowerShops) {
+            final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
+            if (flowerAvailable) {
+                flowerShop.getFlowerInformation(flowerName);
+            }
+        }
+    }
+
+    public Flower pickRandomFlowerinFlowerShop(final String flowerShopName) {
+        for (final FlowerShop FlowerShop : availableFlowerShops) {
+            if (FlowerShop.getShopName().equals(flowerShopName)) {
+                final double randomFlowerDigit = Math.random() * 4;
+                final int flowerDigit = (int) randomFlowerDigit;
+                final String flowerName = FlowerShop.choosenFlower(flowerDigit);
+                for (final Flower flower : FlowerShop.getFlowersInPossession()) {
+                    if (flower.getName() == flowerName) {
+                        return flower;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     public void buyFlower(final int amount, final String flowerName) {
         boolean isBought = false;
         for (final FlowerShop flowerShops : availableFlowerShops) {
@@ -32,33 +57,8 @@ public class Costumer {
         }
     }
 
-    public void getFlowerInformation(final String flowerName) {
-        for (final FlowerShop flowerShop : availableFlowerShops) {
-            final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
-            if (flowerAvailable) {
-                flowerShop.getFlowerInformation(flowerName);
-            }
-        }
-    }
-
     public void addBlumen(final ArrayList<Flower> flowers) {
         boughtFlowers.addAll(flowers);
-    }
-
-    public Flower pickRandomFlowerinFlowerShop(final String flowerShopName) {
-        for (final FlowerShop FlowerShop : availableFlowerShops) {
-            if (FlowerShop.getShopName().equals(flowerShopName)) {
-                final double randomFlowerDigit = Math.random() * 4;
-                final int flowerDigit = (int) randomFlowerDigit;
-                final String flowerName = FlowerShop.choosenFlower(flowerDigit);
-                for (final Flower flower : FlowerShop.getFlowersInPossession()) {
-                    if (flower.getName() == flowerName) {
-                        return flower;
-                    }
-                }
-            }
-        }
-        return null;
     }
 }
 //TODO: Ideas: Enter which FlowerDealer you want to go to
