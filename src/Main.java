@@ -25,7 +25,7 @@ public class Main {
         final Costumer costumer1 = new Costumer("Phil", availableFlowerShops);
 
         flowerShopGiswilerMountainFlower.orderFlower(5, "tulip");
-        flowerShopGiswilerMountainFlower.orderFlower(300, "rose");
+        flowerShopGiswilerMountainFlower.orderFlower(30, "rose");
 
         flowerShopGiswilerMountainFlower.getCurrency();
 

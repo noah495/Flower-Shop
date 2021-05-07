@@ -55,9 +55,9 @@ public class FlowerShop {
         for (final FlowerDealer flowerDealer : availableFlowerDealers) {
             if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
                 final ArrayList<Flower> orderedFlowers = flowerDealer.order(amount);
-                payFlowers(orderedFlowers);
                 System.out.println("Flower ordered successfully");
                 inventory.addFlowers(orderedFlowers);
+                payFlowers(orderedFlowers);
                 System.out.println("Flower successfully added to Inventory");
                 System.out.println(orderedFlowers.size());
                 return;

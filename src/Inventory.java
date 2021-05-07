@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Inventory {
     private final ArrayList<Flower> FlowersInPossession = new ArrayList<>();
-    private double currency = 223400;
+    private double currency = 2100;
 
     public double getCurrency() {
         return currency;
