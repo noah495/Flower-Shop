@@ -8,6 +8,11 @@ public class Inventory {
         return currency;
     }
 
+    public void addCurrency(double moneyToAdd){
+        currency += moneyToAdd;
+        System.out.println("Your new balance is: " + currency + "$\n");
+    }
+
     public void subtractCurrency(final double money) {
         if (money <= currency) {
             currency -= money;
@@ -89,5 +94,6 @@ public class Inventory {
         }
         AvailableFlowers.forEach(System.out::println);
     }
+
 }
 

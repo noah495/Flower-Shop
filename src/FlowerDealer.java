@@ -22,7 +22,7 @@ public class FlowerDealer {
                 }
             case "tulip":
                 for (int i = 0; i < amount; i++) {
-                    FlowerAtDealer.add(new FlowerWithNicknameLocal("tulpe", true,
+                    FlowerAtDealer.add(new FlowerWithNicknameLocal("tulip", true,
                             "tulpi", 6.9, 14, true, 10, false));
                 }
             case "sunflower":

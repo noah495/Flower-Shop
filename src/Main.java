@@ -22,23 +22,21 @@ public class Main {
         availableFlowerShops.add(flowerShopGiswiler);
         availableFlowerShops.add(flowerShopRosesFromTheWholeWorld);
 
-        final Customer costumer1 = new Customer("Phil", availableFlowerShops);
+        final Customer customer1 = new Customer("Phil", availableFlowerShops);
 
         flowerShopGiswiler.orderFlower(5, "tulip");
         flowerShopGiswiler.orderFlower(30, "rose");
 
-        flowerShopGiswiler.getCurrency();
+        final Flower pickedFlower = customer1.pickRandomFlowerinFlowerShop("Giswiler");
 
-        final Flower pickedFlower = costumer1.pickRandomFlowerinFlowerShop("Giswiler");
-
-        final double randomAmount = Math.random() * 10;
+        final double randomAmount = Math.random() * 5;
         final int amount = (int) randomAmount;
 
-        costumer1.buyFlower(amount, pickedFlower.getName());
+        customer1.buyFlower(amount, pickedFlower.getName());
         flowerShopGiswiler.getInventory().printFlowerInformation("tulip");
         flowerShopGiswiler.getInventory().printBlumen();
         flowerShopGiswiler.getCurrency();
-        costumer1.getFlowerInformation("rose");
+        customer1.getFlowerInformation("rose");
     }
 }
 

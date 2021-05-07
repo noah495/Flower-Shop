@@ -66,10 +66,9 @@ public class FlowerShop {
 
     public double getPurchasePrice(String flowerName, int amount) {
         for (Flower flower : inventory.getFlowerInPossession()) {
-            if (flowerName == flower.getName()) {
+            if (flowerName.equals(flower.getName())) {
                 double randomDouble = Math.round((flower.getPrice() - 1) + (Math.random() * (flower.getPrice() + 5)));
-                double price = randomDouble * amount;
-                return price;
+                return randomDouble * amount;
             }
         }
         return 0;
