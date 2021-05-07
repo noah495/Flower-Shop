@@ -61,6 +61,7 @@ public class Inventory {
         if (FlowersInPossession.size() >= digit) {
             final Flower choosenFlower = FlowersInPossession.get(digit);
             final String flowerName = choosenFlower.getName();
+            return flowerName;
         }
         return null;
     }
