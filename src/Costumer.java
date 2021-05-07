@@ -25,7 +25,7 @@ public class Costumer {
             if (FlowerShop.getShopName().equals(flowerShopName)) {
                 final double randomFlowerDigit = Math.random() * 4;
                 final int flowerDigit = (int) randomFlowerDigit;
-                final String flowerName = FlowerShop.choosenFlower(flowerDigit);
+                final String flowerName = FlowerShop.chosenFlower(flowerDigit);
                 for (final Flower flower : FlowerShop.getFlowersInPossession()) {
                     if (flower.getName() == flowerName) {
                         return flower;

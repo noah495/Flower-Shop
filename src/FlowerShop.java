@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class FlowerShop {
+public class FlowerShop{
     private final String shopName;
     private final String address;
     private final Inventory inventory;
     private final ArrayList<FlowerDealer> availableFlowerDealers;
     private final ArrayList<Flower> orderedFlowers = new ArrayList<>();
 
-    FlowerShop(final String storeName, final String address, final ArrayList<FlowerDealer> flowerDealers) {
+    FlowerShop(final String storeName, final String address, final ArrayList<FlowerDealer> flowerDealers){
         this.shopName = storeName;
         this.address = address;
         this.availableFlowerDealers = flowerDealers;
@@ -15,51 +15,51 @@ public class FlowerShop {
         this.inventory = new Inventory();
     }
 
-    public String getShopName() {
+    public String getShopName(){
         return shopName;
     }
 
-    public Inventory getInventory() {
+    public Inventory getInventory(){
         return inventory;
     }
 
-    public ArrayList<Flower> getFlowerInPossession() {
+    public ArrayList<Flower> getFlowerInPossession(){
         return inventory.getFlowerInPossession();
     }
 
-    public double getCurrency() {
+    public double getCurrency(){
         return inventory.getCurrency();
     }
 
-    public void setCurrency(final double money) {
+    public void setCurrency(final double money){
         inventory.setCurrency(money);
     }
 
-    public void getFlowerInformation(final String flowerName) {
+    public void getFlowerInformation(final String flowerName){
         inventory.printFlowerInformation(flowerName);
     }
 
-    public ArrayList<Flower> getOrderedFlowers() {
+    public ArrayList<Flower> getOrderedFlowers(){
         return orderedFlowers;
     }
 
-    public ArrayList<Flower> getFlowersInPossession() {
+    public ArrayList<Flower> getFlowersInPossession(){
         return inventory.getFlowerInPossession();
     }
 
-    public boolean isFlowerExisting(final String flowerName) {
+    public boolean isFlowerExisting(final String flowerName){
         return inventory.isFlowerAvailable(flowerName, 1);
     }
 
-    public boolean isFlowerAvailable(final String flowerName, final int amount) {
+    public boolean isFlowerAvailable(final String flowerName, final int amount){
         return inventory.isFlowerAvailable(flowerName, amount);
     }
 
-    public void orderFlower(final int amount, final String flowerName) {
-        for (final FlowerDealer flowerDealer : availableFlowerDealers) {
-            if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
+    public void orderFlower(final int amount, final String flowerName){
+        for(final FlowerDealer flowerDealer : availableFlowerDealers){
+            if(flowerDealer.getSpecialisedFlower().equals(flowerName)){
                 final ArrayList<Flower> orderedFlowers = flowerDealer.order(amount);
-                payFlowers(flowerName);
+                payFlowers(orderedFlowers);
                 System.out.println("Flower ordered successfully");
                 inventory.addFlowers(orderedFlowers);
                 System.out.println("Flower successfully added to Inventory");
@@ -69,30 +69,32 @@ public class FlowerShop {
         }
     }
 
-    public void payFlowers(String flowerName) {
-        for (final FlowerDealer flowerDealer : availableFlowerDealers) {
-            if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
-            }
+    public void payFlowers(ArrayList<Flower> orderedFlowers){
+        double price = 0;
+        for(final Flower flower : orderedFlowers){
+            price += flower.getPrice();
         }
+
+
     }
 
-    public ArrayList<Flower> sellFlowers(final String flowerName, final int amount) {
+    public ArrayList<Flower> sellFlowers(final String flowerName, final int amount){
         return inventory.getFlowersToSell(flowerName, amount);
     }
 
-    public String choosenFlower(final int digit) {
+    public String chosenFlower(final int digit){
         return inventory.chooseFlower(digit);
     }
 
-    public ArrayList<Flower> order(final int amount) {
+    public ArrayList<Flower> order(final int amount){
         final ArrayList<Flower> boughtFlowers = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
+        for(int i = 0; i < amount; i++){
             boughtFlowers.add(getFlowersInPossession().get(i));
         }
         return boughtFlowers;
     }
 
-    public void printInformation(final String flowerName) {
+    public void printInformation(final String flowerName){
         inventory.printFlowerInformation(flowerName);
     }
 }
