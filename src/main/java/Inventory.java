@@ -78,7 +78,7 @@ public class Inventory {
     }
 
     //TODO: printBlumenInfo return String!!!
-    public void printFlowerInformation(final String flowerName) {
+    public String printFlowerInformation(final String flowerName) {
         for (final Flower flower : flowersInPossession) {
             if (flower.getName().equals(flowerName)) {
                 System.out.println("Information about " + flower.getName());

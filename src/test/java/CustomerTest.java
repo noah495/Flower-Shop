@@ -1,4 +1,4 @@
-package java;
+package test.java;
 
 import main.java.Customer;
 import main.java.FlowerDealer;
@@ -15,7 +15,8 @@ class CustomerTest {
     void givenCostumerBuys20TulipWhenCostumerBuys20FlowerBoughtFlowerSizeIs20() {
         //Arrange
         FlowerDealer flowerDealerWithTulip = new FlowerDealer("tulip");
-        FlowerShop flowerShopWithTulip = new FlowerShop("Flower", "Tribschen", Collections.emptyList());
+        List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealerWithTulip);
+        FlowerShop flowerShopWithTulip = new FlowerShop("Flower", "Tribschen", flowerDealers);
         flowerShopWithTulip.orderFlower(20, "tulip");
         List<FlowerShop> availableFlowers = Collections.singletonList(flowerShopWithTulip);
         Customer testee = new Customer("John", availableFlowers);
@@ -25,4 +26,7 @@ class CustomerTest {
         //Assert
         assertEquals(20, actual);
     }
+
+    @Test
+    void givenCustomerWithTulipWhenCustomerRequestInformationThenReturnTulipInformation() {}
 }
