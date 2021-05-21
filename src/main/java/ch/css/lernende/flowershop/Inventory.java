@@ -77,11 +77,10 @@ public class Inventory {
         return null;
     }
 
-    //TODO: printBlumenInfo return String!!!
     public StringBuilder returnFlowerInformation(final String flowerName) {
         for (final Flower flower : flowersInPossession) {
             if (flower.getName().equals(flowerName)) {
-                StringBuilder stringBuilder = new StringBuilder();
+                final StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append("Information about " + flower.getName());
                 stringBuilder.append("\nRecommended temperature: " + flower.getRecommendedTemperature());
                 stringBuilder.append("\nPrice: " + flower.getPrice());
@@ -90,6 +89,7 @@ public class Inventory {
                 return stringBuilder;
             }
         }
+
         return null;
     }
 
