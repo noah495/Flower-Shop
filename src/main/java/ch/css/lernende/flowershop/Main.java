@@ -36,7 +36,7 @@ public class Main {
 
         customer1.buyFlower(amount, pickedFlower.getName());
         flowerShopGiswiler.getInventory().returnFlowerInformation("tulip");
-        flowerShopGiswiler.getInventory().printBlumen();
+        flowerShopGiswiler.getInventory().printFlowers();
         flowerShopGiswiler.getCurrency();
         customer1.getFlowerInformation("rose");
     }

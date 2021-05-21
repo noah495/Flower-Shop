@@ -16,12 +16,12 @@ public class Inventory {
         System.out.println("Your new balance is: " + currency + "$\n");
     }
 
-    public void subtractCurrency(final double money) {
+    public String subtractCurrency(final double money) {
         if (money <= currency) {
             currency -= money;
-            System.out.println("Your new balance is: " + currency + "$\n");
+            return "Your new balance is: " + currency + "$\n";
         } else {
-            System.out.println("You're too broke");
+            return "You're too broke";
         }
     }
 
@@ -93,7 +93,7 @@ public class Inventory {
         return null;
     }
 
-    public void printBlumen() {
+    public void printFlowers() {
         final ArrayList<String> AvailableFlowers = new ArrayList<>();
         for (final Flower flower : flowersInPossession) {
             if (!AvailableFlowers.contains(flower.getName())) {

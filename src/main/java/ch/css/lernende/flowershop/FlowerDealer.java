@@ -1,6 +1,5 @@
 package ch.css.lernende.flowershop;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +45,6 @@ public class FlowerDealer {
                 break;
             default:
                 System.out.println("Flower couldn't be created");
-                //TDOD: Break und Default --> Google What happends when switch is missing a break
         }
     }
 

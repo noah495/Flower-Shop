@@ -70,4 +70,3 @@ public class Customer {
         boughtFlowers.addAll(flowers);
     }
 }
-//TODO: Ideas: Enter which FlowerDealer you want to go to

@@ -8,6 +8,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InventoryTest {
+   /* @Test
+    voi*/
+
     @Test
     void givenInventoryCurrency2100WhenAddCurrency200ThenReturnCurrency2300() {
         //Arrange
@@ -20,14 +23,24 @@ class InventoryTest {
     }
 
     @Test
-    void givenInventoryCurrency2100WhenSubtractCurrency100ThenReturnCurrency2000() {
+    void givenInventoryCurrency2100WhenSubtractCurrency100ThenReturnStringAndBalance() {
         //Arrange
         final Inventory testee = new Inventory();
-        testee.subtractCurrency(100);
+
         //Act
-        final double actual = testee.getCurrency();
+        final String actual = testee.subtractCurrency(100);
         //Assert
-        assertEquals(2000, actual);
+        assertEquals("Your new balance is: 2000.0$\n", actual);
+    }
+
+    @Test
+    void givenInventoryCurrency2100WhenSubtractCurrency2200ThenReturnStringNotEnoghMoney() {
+        //Arrange
+        final Inventory testee = new Inventory();
+        //Act
+        final String actual = testee.subtractCurrency(2200);
+        //Assert
+        assertEquals("You're too broke", actual);
     }
 
     @Test
@@ -41,5 +54,59 @@ class InventoryTest {
         final int actual = testee.getFlowerInPossession().size();
         //Assert
         assertEquals(20, actual);
+    }
+
+    @Test
+    void givenInventoryIsFlowerAvailableWhenFlowerAvailable10roseThenReturnTrue() {
+        //Arrange
+        final FlowerDealer flowerDealer = new FlowerDealer("rose");
+        final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
+        final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
+        testee.orderFlower(20, "rose");
+        //Act
+        final boolean actual = testee.isFlowerAvailable("rose", 10);
+        //Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void givenInventoryGetAmountFlowersWhenFlowerAmountIs49TulipThenReturn10() {
+        //Arrange
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
+        final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
+        testee.orderFlower(49, "tulip");
+        //Act
+        final int actual = testee.getInventory().getAmountFlowers();
+        //Assert
+        assertEquals(49, actual);
+    }
+
+    @Test
+    void givenInventoryGetFlowersToSellWhenStoreHas32TulipThenReturnFlowersToSellSize32() {
+        //Arrange
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
+        final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
+        testee.orderFlower(32, "tulip");
+        //Act
+        final int actual = testee.getInventory().getFlowersToSell("tulip", 32).size();
+        //Assert
+        assertEquals(32, actual);
+    }
+
+    @Test
+    void givenInventoryReturnFlowerInformationWhenFlowerTulipThenReturnTulipInformation() {
+        //Arrange
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
+        final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
+        testee.orderFlower(50, "tulip");
+        final String expected = "Information about tulip\nRecommended temperature: 10\nPrice: 6.9\nRequires Light: No\nSize when bought: 14";
+
+        //Act
+        final StringBuilder actual = testee.getInventory().returnFlowerInformation("tulip");
+        //Assert
+        assertEquals(expected, actual.toString());
     }
 }
