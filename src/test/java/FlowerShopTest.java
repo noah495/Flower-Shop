@@ -1,4 +1,4 @@
-package test.java;
+package java;
 
 import main.java.FlowerDealer;
 import main.java.FlowerShop;

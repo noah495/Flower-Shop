@@ -5,11 +5,12 @@ import java.util.List;
 
 public class Customer {
     private final List<FlowerShop> availableFlowerShops;
+
     private final List<Flower> boughtFlowers = new ArrayList<>();
 
     private final String name;
 
-    Customer(final String costumerName, final ArrayList<FlowerShop> flowerShops) {
+    public Customer(final String costumerName, final List<FlowerShop> flowerShops) {
         this.name = costumerName;
         this.availableFlowerShops = flowerShops;
     }
@@ -58,6 +59,10 @@ public class Customer {
         if (!isBought) {
             System.out.println("We're Sorry, the flower you wish is not available in any Shops.");
         }
+    }
+
+    public List<Flower> getBoughtFlowers() {
+        return boughtFlowers;
     }
 
     private void addFlowers(final ArrayList<Flower> flowers) {

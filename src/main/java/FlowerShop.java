@@ -18,6 +18,10 @@ public class FlowerShop {
         this.inventory = new Inventory();
     }
 
+    public FlowerShop() {
+
+    }
+
     public String getAddress() {
         return address;
     }
