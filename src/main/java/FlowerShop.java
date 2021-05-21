@@ -1,18 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class FlowerShop {
     private final String shopName;
     private final String address;
     private final Inventory inventory;
-    private final ArrayList<FlowerDealer> availableFlowerDealers;
-    private final ArrayList<Flower> orderedFlowers = new ArrayList<>();
+    private final List<FlowerDealer> availableFlowerDealers;
+    private final List<Flower> orderedFlowers = new ArrayList<>();
 
-    FlowerShop(final String storeName, final String address, final ArrayList<FlowerDealer> flowerDealers) {
+    FlowerShop(final String storeName, final String address, final List<FlowerDealer> flowerDealers) {
         this.shopName = storeName;
         this.address = address;
         this.availableFlowerDealers = flowerDealers;
 
         this.inventory = new Inventory();
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public String getShopName() {
@@ -35,7 +40,7 @@ public class FlowerShop {
         inventory.printFlowerInformation(flowerName);
     }
 
-    public ArrayList<Flower> getOrderedFlowers() {
+    public List<Flower> getOrderedFlowers() {
         return orderedFlowers;
     }
 
@@ -54,7 +59,7 @@ public class FlowerShop {
     public void orderFlower(final int amount, final String flowerName) {
         for (final FlowerDealer flowerDealer : availableFlowerDealers) {
             if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
-                final ArrayList<Flower> orderedFlowers = flowerDealer.order(amount);
+                final List<Flower> orderedFlowers = flowerDealer.order(amount);
                 System.out.println("Your current account balance is " + inventory.getCurrency() + "$\n");
                 inventory.addFlowers(orderedFlowers);
 
@@ -64,22 +69,22 @@ public class FlowerShop {
         }
     }
 
-    public double getPurchasePrice(String flowerName, int amount) {
-        for (Flower flower : inventory.getFlowerInPossession()) {
+    public double getPurchasePrice(final String flowerName, final int amount) {
+        for (final Flower flower : inventory.getFlowerInPossession()) {
             if (flowerName.equals(flower.getName())) {
-                double randomDouble = Math.round((flower.getPrice() - 1) + (Math.random() * (flower.getPrice() + 5)));
+                final double randomDouble = Math.round((flower.getPrice() - 1) + (Math.random() * (flower.getPrice() + 5)));
                 return randomDouble * amount;
             }
         }
         return 0;
     }
 
-    public void payFlowers(final ArrayList<Flower> orderedFlowers) {
+    public void payFlowers(final List<Flower> orderedFlowers) {
         double price = 0;
         for (final Flower flower : orderedFlowers) {
             price += flower.getPrice();
         }
-        System.out.println("Ordered " + orderedFlowers.size() + " flowers of type " + orderedFlowers.get(0).getName() + " (" + price + "$)");
+        System.out.println("Ordered " + orderedFlowers.size() + " flowers of type " + orderedFlowers.get(0).getName() + " (" + Math.round(price * 100) / 100 + "$)");
         inventory.subtractCurrency(price);
     }
 
@@ -101,6 +106,10 @@ public class FlowerShop {
 
     public void printInformation(final String flowerName) {
         inventory.printFlowerInformation(flowerName);
+    }
+
+    public void receiveMoney(final int amount, final String flowerName) {
+        getInventory().addCurrency(getPurchasePrice(flowerName, amount));
     }
 }
 

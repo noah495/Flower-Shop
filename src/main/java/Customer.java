@@ -27,7 +27,7 @@ public class Customer {
                 final int flowerDigit = (int) randomFlowerDigit;
                 final String flowerName = FlowerShop.chosenFlower(flowerDigit);
                 for (final Flower flower : FlowerShop.getFlowersInPossession()) {
-                    if (flower.getName() == flowerName) {
+                    if (flower.getName().equals(flowerName)) {
                         return flower;
                     }
                 }
@@ -39,12 +39,11 @@ public class Customer {
     public void buyFlower(final int amount, final String flowerName) {
         boolean isBought = false;
         for (final FlowerShop flowerShop : availableFlowerShops) {
-            final boolean flowerAvailable = flowerShop.isFlowerAvailable(flowerName, amount);
-            if (flowerAvailable) {
+            if (flowerShop.isFlowerAvailable(flowerName, amount)) {
                 System.out.println("Flower available");
-                flowerShop.getInventory().addCurrency(flowerShop.getPurchasePrice(flowerName, amount));
+                flowerShop.receiveMoney(amount, flowerName);
                 final ArrayList<Flower> currentBoughtFlowers = flowerShop.sellFlowers(flowerName, amount);
-                addBlumen(currentBoughtFlowers);
+                addFlowers(currentBoughtFlowers);
                 System.out.println("Flower bought successfully\n");
                 System.out.println(boughtFlowers.size());
                 isBought = true;
@@ -53,12 +52,12 @@ public class Customer {
                 System.out.println("The Flowershop " + flowerShop.getShopName() + " does not have the flower you wish. Please go to the next shop");
             }
         }
-        if (isBought == false) {
+        if (!isBought) {
             System.out.println("We're Sorry, the flower you wish is not available in any Shops.");
         }
     }
 
-    public void addBlumen(final ArrayList<Flower> flowers) {
+    private void addFlowers(final ArrayList<Flower> flowers) {
         boughtFlowers.addAll(flowers);
     }
 }

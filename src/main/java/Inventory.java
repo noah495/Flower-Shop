@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventory {
     private final ArrayList<Flower> flowersInPossession = new ArrayList<>();
@@ -8,7 +9,7 @@ public class Inventory {
         return currency;
     }
 
-    public void addCurrency(double moneyToAdd){
+    public void addCurrency(final double moneyToAdd) {
         currency += moneyToAdd;
         System.out.println("Your new balance is: " + currency + "$\n");
     }
@@ -50,6 +51,9 @@ public class Inventory {
                 }
             }
         }
+        if (i != 0) {
+            System.out.println("We're Sorry, we only have " + i + " " + flowerName + "s in stock");
+        }
         return false;
     }
 
@@ -58,7 +62,7 @@ public class Inventory {
         return getSizeFlower;
     }
 
-    public void addFlowers(final ArrayList<Flower> flowers) {
+    public void addFlowers(final List<Flower> flowers) {
         flowersInPossession.addAll(flowers);
     }
 
@@ -94,6 +98,5 @@ public class Inventory {
         }
         AvailableFlowers.forEach(System.out::println);
     }
-
 }
 
