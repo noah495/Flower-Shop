@@ -1,15 +1,11 @@
-package test.java;
+package ch.css.lernende.flowershop;
 
-import main.java.Customer;
-import main.java.FlowerDealer;
-import main.java.FlowerShop;
-import main.java.Inventory;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomerTest {
     @Test
@@ -25,7 +21,7 @@ class CustomerTest {
         //Act
         int actual = testee.getBoughtFlowers().size();
         //Assert
-        assertEquals(20, actual);
+        Assertions.assertEquals(20, actual);
     }
 
     @Test
@@ -39,10 +35,12 @@ class CustomerTest {
         List<FlowerShop> flowerShops = Collections.singletonList(flowerShop);
         Customer testee = new Customer("Natascha", flowerShops);
         testee.buyFlower(1, "tulip");
-
+        String expected = "Information about tulip\nRecommended temperature: 10\nPrice: 6.9\nRequires Light: Yes\nSize when bought: 14";
         //Act
         StringBuilder actual = testee.getFlowerInformation("tulip");
         //Assert
+        Assertions.assertEquals(expected, actual);
+
 
     }
 }

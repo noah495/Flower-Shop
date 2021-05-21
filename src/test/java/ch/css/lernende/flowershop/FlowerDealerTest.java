@@ -1,12 +1,9 @@
-package java;
+package ch.css.lernende.flowershop;
 
-import main.java.Flower;
-import main.java.FlowerDealer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FlowerDealerTest {
 
@@ -17,7 +14,7 @@ class FlowerDealerTest {
         //Act
         String actual = testee.getSpecialisedFlower();
         //Assert
-        assertEquals("rose", actual);
+        Assertions.assertEquals("rose", actual);
     }
 
     @Test
@@ -27,6 +24,6 @@ class FlowerDealerTest {
         //Act
         List<Flower> actual = testee.order(10);
         //Assert
-        assertEquals(10, actual.size());
+        Assertions.assertEquals(10, actual.size());
     }
 }

@@ -1,4 +1,5 @@
-package main.java;
+package ch.css.lernende.flowershop;
+
 
 public class Flower {
     private final boolean isAlive;

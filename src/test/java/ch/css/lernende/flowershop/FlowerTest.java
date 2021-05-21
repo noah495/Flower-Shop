@@ -1,9 +1,8 @@
-package java;
+package ch.css.lernende.flowershop;
 
-import main.java.Flower;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FlowerTest {
     @Test
@@ -13,7 +12,7 @@ class FlowerTest {
         //Act
         String actual = testee.getName();
         //Assert
-        assertEquals("rose", actual);
+        Assertions.assertEquals("rose", actual);
     }
 
     @Test
@@ -23,7 +22,7 @@ class FlowerTest {
         //Act
         double actual = testee.getPrice();
         //Assert
-        assertEquals(39, actual);
+        Assertions.assertEquals(39, actual);
     }
 
     @Test
@@ -33,7 +32,7 @@ class FlowerTest {
         //Act
         String actual = testee.getLightRequired();
         //Assert
-        assertEquals("Yes", actual);
+        Assertions.assertEquals("Yes", actual);
     }
 
     @Test
@@ -43,7 +42,7 @@ class FlowerTest {
         //Act
         double actual = testee.getSizeInCm();
         //Assert
-        assertEquals(20, actual);
+        Assertions.assertEquals(20, actual);
     }
 
     @Test
@@ -53,7 +52,7 @@ class FlowerTest {
         //Act
         int actual = testee.getRecommendedTemperature();
         //Assert
-        assertEquals(25, actual);
+        Assertions.assertEquals(25, actual);
     }
 
     @Test
@@ -64,6 +63,6 @@ class FlowerTest {
         //Act
         double actual = testee.getPrice();
         //Assert
-        assertEquals(60, actual);
+        Assertions.assertEquals(60, actual);
     }
 }

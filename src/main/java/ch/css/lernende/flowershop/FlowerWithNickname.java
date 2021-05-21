@@ -1,4 +1,4 @@
-package main.java;
+package ch.css.lernende.flowershop;
 
 public class FlowerWithNickname extends Flower {
 

@@ -1,4 +1,4 @@
-package main.java;
+package ch.css.lernende.flowershop;
 
 import java.util.ArrayList;
 

@@ -1,14 +1,11 @@
-package java;
+package ch.css.lernende.flowershop;
 
-import main.java.FlowerDealer;
-import main.java.FlowerShop;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FlowerShopTest {
 
@@ -21,7 +18,7 @@ class FlowerShopTest {
         // Act
         String actual = testee.getShopName();
         // Assert
-        assertEquals("Paula", actual);
+        Assertions.assertEquals("Paula", actual);
     }
 
     @Test
@@ -31,7 +28,7 @@ class FlowerShopTest {
         //Act
         String actual = testee.getAddress();
         //Assert
-        assertEquals("Seestrasse", actual);
+        Assertions.assertEquals("Seestrasse", actual);
     }
 
     @Test
@@ -41,7 +38,7 @@ class FlowerShopTest {
         //Act
         double actual = testee.getInventory().getCurrency();
         //Assert
-        assertEquals(2100, actual);
+        Assertions.assertEquals(2100, actual);
     }
 
     @Test
@@ -57,7 +54,7 @@ class FlowerShopTest {
         testee.orderFlower(10, "rose");
         boolean actual = testee.isFlowerExisting("sunflower");
         //Arrange
-        assertEquals(false, actual);
+        Assertions.assertEquals(false, actual);
     }
 
     @Test
@@ -75,6 +72,6 @@ class FlowerShopTest {
         //Act
         boolean actual = testee.isFlowerExisting("tulip");
         //Arrange
-        assertEquals(true, actual);
+        Assertions.assertEquals(true, actual);
     }
 }
