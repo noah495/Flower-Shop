@@ -34,7 +34,7 @@ public class FlowerShop {
         return inventory;
     }
 
-    public ArrayList<Flower> getFlowerInPossession() {
+    public List<Flower> getFlowerInPossession() {
         return inventory.getFlowerInPossession();
     }
 
@@ -50,7 +50,7 @@ public class FlowerShop {
         return orderedFlowers;
     }
 
-    public ArrayList<Flower> getFlowersInPossession() {
+    public List<Flower> getFlowersInPossession() {
         return inventory.getFlowerInPossession();
     }
 

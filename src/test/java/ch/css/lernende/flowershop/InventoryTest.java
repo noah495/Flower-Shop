@@ -35,9 +35,8 @@ class InventoryTest {
         //Arrange
         final FlowerDealer flowerDealer = new FlowerDealer("rose");
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
-        final FlowerShop flowerShop = new FlowerShop("LeoniesParkShop", "Garden", flowerDealers);
-        flowerShop.orderFlower(20, "rose");
-        final Inventory testee = new Inventory();
+        final FlowerShop testee = new FlowerShop("LeoniesParkShop", "Garden", flowerDealers);
+        testee.orderFlower(20, "rose");
         //Act
         final int actual = testee.getFlowerInPossession().size();
         //Assert

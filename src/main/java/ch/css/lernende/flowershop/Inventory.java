@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
-    private final ArrayList<Flower> flowersInPossession = new ArrayList<>();
+    private final List<Flower> flowersInPossession = new ArrayList<>();
     private double currency = 2100;
 
     public double getCurrency() {
@@ -25,7 +25,7 @@ public class Inventory {
         }
     }
 
-    public ArrayList<Flower> getFlowerInPossession() {
+    public List<Flower> getFlowerInPossession() {
         return flowersInPossession;
     }
 
