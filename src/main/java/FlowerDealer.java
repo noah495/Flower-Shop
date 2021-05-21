@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,7 +7,7 @@ public class FlowerDealer {
     private final String specialisedFlower;
     private final List<Flower> flowersOnStock = new ArrayList<Flower>();
 
-    FlowerDealer(final String flowerName) {
+    public FlowerDealer(final String flowerName) {
         this.specialisedFlower = flowerName;
         createFlowers(3000);
     }

@@ -1,3 +1,7 @@
+package test.java;
+
+import main.java.FlowerDealer;
+import main.java.FlowerShop;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

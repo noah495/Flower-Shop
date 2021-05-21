@@ -1,3 +1,5 @@
+package main.java;
+
 public class FlowerWithThorn extends Flower {
 
     int thorn;

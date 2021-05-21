@@ -1,3 +1,5 @@
+package main.java;
+
 public class Flower {
     private final boolean isAlive;
     private final String name;
@@ -7,7 +9,7 @@ public class Flower {
     private final boolean needsLight;
     private boolean isDying;
 
-    Flower(final String name, final double price, final int sizeInCm, final boolean isAlive, final int recommendedTemperature, final boolean needsLight) {
+    public Flower(final String name, final double price, final int sizeInCm, final boolean isAlive, final int recommendedTemperature, final boolean needsLight) {
         this.name = name;
         this.price = price;
         this.sizeInCm = sizeInCm;

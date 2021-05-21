@@ -1,3 +1,7 @@
+package test.java;
+
+import main.java.Flower;
+import main.java.FlowerDealer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

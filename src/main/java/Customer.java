@@ -1,8 +1,11 @@
+package main.java;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
-    private final ArrayList<FlowerShop> availableFlowerShops;
-    private final ArrayList<Flower> boughtFlowers = new ArrayList<>();
+    private final List<FlowerShop> availableFlowerShops;
+    private final List<Flower> boughtFlowers = new ArrayList<>();
 
     private final String name;
 

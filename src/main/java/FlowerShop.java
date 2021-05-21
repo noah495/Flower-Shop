@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class FlowerShop {
     private final List<FlowerDealer> availableFlowerDealers;
     private final List<Flower> orderedFlowers = new ArrayList<>();
 
-    FlowerShop(final String storeName, final String address, final List<FlowerDealer> flowerDealers) {
+    public FlowerShop(final String storeName, final String address, final List<FlowerDealer> flowerDealers) {
         this.shopName = storeName;
         this.address = address;
         this.availableFlowerDealers = flowerDealers;
