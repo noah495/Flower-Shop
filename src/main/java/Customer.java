@@ -15,13 +15,14 @@ public class Customer {
         this.availableFlowerShops = flowerShops;
     }
 
-    public void getFlowerInformation(final String flowerName) {
+    public StringBuilder getFlowerInformation(final String flowerName) {
         for (final FlowerShop flowerShop : availableFlowerShops) {
             final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
             if (flowerAvailable) {
-                flowerShop.getFlowerInformation(flowerName);
+                return flowerShop.getFlowerInformation(flowerName);
             }
         }
+        return null;
     }
 
     public Flower pickRandomFlowerinFlowerShop(final String flowerShopName) {

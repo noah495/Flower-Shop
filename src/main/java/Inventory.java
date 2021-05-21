@@ -78,17 +78,19 @@ public class Inventory {
     }
 
     //TODO: printBlumenInfo return String!!!
-    public String printFlowerInformation(final String flowerName) {
+    public StringBuilder returnFlowerInformation(final String flowerName) {
         for (final Flower flower : flowersInPossession) {
             if (flower.getName().equals(flowerName)) {
-                System.out.println("Information about " + flower.getName());
-                System.out.println("Recommended temperature: " + flower.getRecommendedTemperature());
-                System.out.println("Price: " + flower.getPrice());
-                System.out.println("Requires Light: " + flower.getLightRequired());
-                System.out.println("Size when bought: " + flower.getSizeInCm());
-                break;
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("Information about " + flower.getName());
+                stringBuilder.append("\nRecommended temperature: " + flower.getRecommendedTemperature());
+                stringBuilder.append("\nPrice: " + flower.getPrice());
+                stringBuilder.append("\nRequires Light: " + flower.getLightRequired());
+                stringBuilder.append("\nSize when bought: " + flower.getSizeInCm());
+                return stringBuilder;
             }
         }
+        return null;
     }
 
     public void printBlumen() {

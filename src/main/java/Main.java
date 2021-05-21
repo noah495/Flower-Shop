@@ -35,7 +35,7 @@ public class Main {
         final int amount = (int) randomAmount;
 
         customer1.buyFlower(amount, pickedFlower.getName());
-        flowerShopGiswiler.getInventory().printFlowerInformation("tulip");
+        flowerShopGiswiler.getInventory().returnFlowerInformation("tulip");
         flowerShopGiswiler.getInventory().printBlumen();
         flowerShopGiswiler.getCurrency();
         customer1.getFlowerInformation("rose");

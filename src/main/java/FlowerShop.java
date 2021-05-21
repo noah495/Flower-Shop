@@ -42,8 +42,8 @@ public class FlowerShop {
         return inventory.getCurrency();
     }
 
-    public void getFlowerInformation(final String flowerName) {
-        inventory.printFlowerInformation(flowerName);
+    public StringBuilder getFlowerInformation(final String flowerName) {
+        return inventory.returnFlowerInformation(flowerName);
     }
 
     public List<Flower> getOrderedFlowers() {
@@ -111,7 +111,7 @@ public class FlowerShop {
     }
 
     public void printInformation(final String flowerName) {
-        inventory.printFlowerInformation(flowerName);
+        inventory.returnFlowerInformation(flowerName);
     }
 
     public void receiveMoney(final int amount, final String flowerName) {

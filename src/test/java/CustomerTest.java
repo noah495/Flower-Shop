@@ -3,6 +3,7 @@ package test.java;
 import main.java.Customer;
 import main.java.FlowerDealer;
 import main.java.FlowerShop;
+import main.java.Inventory;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -28,5 +29,20 @@ class CustomerTest {
     }
 
     @Test
-    void givenCustomerWithTulipWhenCustomerRequestInformationThenReturnTulipInformation() {}
+    void givenCustomerWithTulipWhenCustomerRequestInformationThenReturnTulipInformation() {
+        //Arrange
+        Inventory inventory = new Inventory();
+        FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
+        FlowerShop flowerShop = new FlowerShop("NoahsFlowerPower", "Hergiswil", flowerDealers);
+        flowerShop.orderFlower(1, "tulip");
+        List<FlowerShop> flowerShops = Collections.singletonList(flowerShop);
+        Customer testee = new Customer("Natascha", flowerShops);
+        testee.buyFlower(1, "tulip");
+
+        //Act
+        StringBuilder actual = testee.getFlowerInformation("tulip");
+        //Assert
+
+    }
 }
