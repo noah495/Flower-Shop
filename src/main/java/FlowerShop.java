@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlowerShop {
-    private final String shopName;
-    private final String address;
-    private final Inventory inventory;
-    private final List<FlowerDealer> availableFlowerDealers;
-    private final List<Flower> orderedFlowers = new ArrayList<>();
+    private String shopName;
+    private String address;
+    private Inventory inventory;
+    private List<FlowerDealer> availableFlowerDealers;
+    private List<Flower> orderedFlowers = new ArrayList<>();
 
     public FlowerShop(final String storeName, final String address, final List<FlowerDealer> flowerDealers) {
         this.shopName = storeName;
