@@ -10,9 +10,9 @@ class FlowerDealerTest {
     @Test
     void givenFlowerDealerWithRoseWhenCreateRoseThenReturnRose() {
         //Arrange
-        FlowerDealer testee = new FlowerDealer("rose");
+        final FlowerDealer testee = new FlowerDealer("rose", 200);
         //Act
-        String actual = testee.getSpecialisedFlower();
+        final String actual = testee.getSpecialisedFlower();
         //Assert
         Assertions.assertEquals("rose", actual);
     }
@@ -20,9 +20,9 @@ class FlowerDealerTest {
     @Test
     void givenFlowerDealerWithTulipDeliverWhenOrderFlowerThenReturnOrderedFlowers() {
         //Arrange
-        FlowerDealer testee = new FlowerDealer("tulip");
+        final FlowerDealer testee = new FlowerDealer("tulip", 300);
         //Act
-        List<Flower> actual = testee.order(10);
+        final List<Flower> actual = testee.order(10);
         //Assert
         Assertions.assertEquals(10, actual.size());
     }

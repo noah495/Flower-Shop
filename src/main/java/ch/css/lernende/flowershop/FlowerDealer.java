@@ -2,14 +2,23 @@ package ch.css.lernende.flowershop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FlowerDealer {
     private final String specialisedFlower;
+    private final Random rnd = new Random();
+    private final int random = rnd.nextInt(101);
     private final List<Flower> flowersOnStock = new ArrayList<Flower>();
 
-    public FlowerDealer(final String flowerName) {
+    public FlowerDealer(final String flowerName, final int amount) {
         this.specialisedFlower = flowerName;
-        createFlowers(3000);
+        createFlowers(amount);
+        //TODO: FlowerDealer bei order Flower Blumen erstellen
+        //TODO: Wenn Blumen gekauft dann Blumen von FlowerDealer abgezogen
+    }
+
+    public List<Flower> getFlowersOnStock() {
+        return flowersOnStock;
     }
 
     public String getSpecialisedFlower() {
@@ -49,11 +58,18 @@ public class FlowerDealer {
     }
 
     public List<Flower> order(final int amount) {
+        //TODO: Überprüfen ob genug Blumen
         final List<Flower> flowersToDeliver = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            flowersToDeliver.add(flowersOnStock.get(i));
+        if (amount <= flowersOnStock.size()) {
+            for (int i = 0; i < amount; i++) {
+                flowersToDeliver.add(flowersOnStock.get(i));
+            }
         }
         return flowersToDeliver;
+    }
+
+    public void removeFlowers(final int amount) {
+        flowersOnStock.remove(amount);
     }
 }
 

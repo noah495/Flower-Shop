@@ -34,7 +34,7 @@ class InventoryTest {
     }
 
     @Test
-    void givenInventoryCurrency2100WhenSubtractCurrency2200ThenReturnStringNotEnoghMoney() {
+    void givenInventoryCurrency2100WhenSubtractCurrency2200ThenReturnStringNotEnoughMoney() {
         //Arrange
         final Inventory testee = new Inventory();
         //Act
@@ -46,12 +46,14 @@ class InventoryTest {
     @Test
     void givenInventoryFlowersInPossessionWhenFlowerInPossessionIs20RoseThenReturnSize20() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("rose");
+        final FlowerDealer flowerDealer = new FlowerDealer("rose", 200);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("LeoniesParkShop", "Garden", flowerDealers);
         testee.orderFlower(20, "rose");
+
         //Act
         final int actual = testee.getFlowerInPossession().size();
+
         //Assert
         assertEquals(20, actual);
     }
@@ -59,7 +61,7 @@ class InventoryTest {
     @Test
     void givenInventoryIsFlowerAvailableWhenFlowerAvailable10roseThenReturnTrue() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("rose");
+        final FlowerDealer flowerDealer = new FlowerDealer("rose", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
         testee.orderFlower(20, "rose");
@@ -72,7 +74,7 @@ class InventoryTest {
     @Test
     void givenInventoryGetAmountFlowersWhenFlowerAmountIs49TulipThenReturn10() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip", 250);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
         testee.orderFlower(49, "tulip");
@@ -85,7 +87,7 @@ class InventoryTest {
     @Test
     void givenInventoryGetFlowersToSellWhenStoreHas32TulipThenReturnFlowersToSellSize32() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
         testee.orderFlower(32, "tulip");
@@ -98,14 +100,14 @@ class InventoryTest {
     @Test
     void givenInventoryReturnFlowerInformationWhenFlowerTulipThenReturnTulipInformation() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip", 200);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
         testee.orderFlower(50, "tulip");
         final String expected = "Information about tulip\nRecommended temperature: 10\nPrice: 6.9\nRequires Light: No\nSize when bought: 14";
 
         //Act
-        final StringBuilder actual = testee.getInventory().returnFlowerInformation("tulip");
+        final StringBuilder actual = testee.getInventory().getFlowerInformation("tulip");
         //Assert
         assertEquals(expected, actual.toString());
     }

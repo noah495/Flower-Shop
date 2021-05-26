@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(final String[] args) {
-        final FlowerDealer FlowerDealerHansWithTulip = new FlowerDealer("tulip");
-        final FlowerDealer FlowerDealerMaxWithRose = new FlowerDealer("rose");
-        final FlowerDealer FlowerDealerOliviaWithSunflower = new FlowerDealer("sunflower");
-        final FlowerDealer flowerDealerAnaWithLotus = new FlowerDealer("lotus");
+        final FlowerDealer flowerDealerHansWithTulip = new FlowerDealer("tulip", 200);
+        final FlowerDealer flowerDealerMaxWithRose = new FlowerDealer("rose", 300);
+        final FlowerDealer flowerDealerOliviaWithSunflower = new FlowerDealer("sunflower", 100);
+        final FlowerDealer flowerDealerAnaWithLotus = new FlowerDealer("lotus", 150);
         final ArrayList<FlowerDealer> availableFlowerDealer = new ArrayList<>();
-        availableFlowerDealer.add(FlowerDealerHansWithTulip);
-        availableFlowerDealer.add(FlowerDealerMaxWithRose);
-        availableFlowerDealer.add(FlowerDealerOliviaWithSunflower);
+        availableFlowerDealer.add(flowerDealerHansWithTulip);
+        availableFlowerDealer.add(flowerDealerMaxWithRose);
+        availableFlowerDealer.add(flowerDealerOliviaWithSunflower);
         availableFlowerDealer.add(flowerDealerAnaWithLotus);
 
         final FlowerShop flowerShopGiswiler =
@@ -35,7 +35,7 @@ public class Main {
         final int amount = (int) randomAmount;
 
         customer1.buyFlower(amount, pickedFlower.getName());
-        flowerShopGiswiler.getInventory().returnFlowerInformation("tulip");
+        flowerShopGiswiler.getInventory().getFlowerInformation("tulip");
         flowerShopGiswiler.getInventory().printFlowers();
         flowerShopGiswiler.getCurrency();
         customer1.getFlowerInformation("rose");

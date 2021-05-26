@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomerTest {
     @Test
-    void givenCostumerBuys20TulipWhenCostumerBuys20FlowerBoughtFlowerSizeIs20() {
+    void givenCostumerBuys20TulipWhenCostumerBuys20FlowerThenBoughtFlowerSizeIs20() {
         //Arrange
-        final FlowerDealer flowerDealerWithTulip = new FlowerDealer("tulip");
+        final FlowerDealer flowerDealerWithTulip = new FlowerDealer("tulip", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealerWithTulip);
         final FlowerShop flowerShopWithTulip = new FlowerShop("Flower", "Tribschen", flowerDealers);
         flowerShopWithTulip.orderFlower(20, "tulip");
@@ -19,15 +19,16 @@ class CustomerTest {
         final Customer testee = new Customer("John", availableFlowers);
         testee.buyFlower(20, "tulip");
         //Act
-        final int actual = testee.getBoughtFlowers().size();
+        final List<Flower> actual = testee.getBoughtFlowers();
         //Assert
-        assertEquals(20, actual);
+        assertEquals(20, actual.size());
+        assertEquals("tulip", actual.get(0).getName());
     }
 
     @Test
     void givenCustomerWithTulipWhenCustomerRequestInformationThenReturnTulipInformation() {
         //Arrange
-        final FlowerDealer flowerDealer = new FlowerDealer("tulip");
+        final FlowerDealer flowerDealer = new FlowerDealer("tulip", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop flowerShop = new FlowerShop("NoahsFlowerPower", "Hergiswil", flowerDealers);
         flowerShop.orderFlower(2, "tulip");

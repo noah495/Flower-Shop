@@ -49,6 +49,7 @@ public class Customer {
                 flowerShop.receiveMoney(amount, flowerName);
                 final ArrayList<Flower> currentBoughtFlowers = flowerShop.sellFlowers(flowerName, amount);
                 addFlowers(currentBoughtFlowers);
+
                 System.out.println("Flower bought successfully\n");
                 System.out.println(boughtFlowers.size());
                 isBought = true;

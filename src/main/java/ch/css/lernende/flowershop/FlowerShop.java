@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlowerShop {
+    private final List<Flower> orderedFlowers = new ArrayList<>();
     private String shopName;
     private String address;
     private Inventory inventory;
     private List<FlowerDealer> availableFlowerDealers;
-    private List<Flower> orderedFlowers = new ArrayList<>();
 
     public FlowerShop(final String storeName, final String address, final List<FlowerDealer> flowerDealers) {
         this.shopName = storeName;
@@ -43,7 +43,7 @@ public class FlowerShop {
     }
 
     public StringBuilder getFlowerInformation(final String flowerName) {
-        return inventory.returnFlowerInformation(flowerName);
+        return inventory.getFlowerInformation(flowerName);
     }
 
     public List<Flower> getOrderedFlowers() {
@@ -63,16 +63,38 @@ public class FlowerShop {
     }
 
     public void orderFlower(final int amount, final String flowerName) {
-        for (final FlowerDealer flowerDealer : availableFlowerDealers) {
-            if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
-                final List<Flower> orderedFlowers = flowerDealer.order(amount);
-                System.out.println("Your current account balance is " + inventory.getCurrency() + "$\n");
-                inventory.addFlowers(orderedFlowers);
+        getPriceOfOrder(flowerName, amount);
+        getInventory().getCurrency();
+        if (getPriceOfOrder(flowerName, amount) <= getInventory().getCurrency()) {
+            System.out.println(getPriceOfOrder(flowerName, amount));
+            //TODO: Logik verbessern + Geld, Kosten, ... mitteilen
+            for (final FlowerDealer flowerDealer : availableFlowerDealers) {
+                if (flowerDealer.getSpecialisedFlower().equals(flowerName)) {
 
-                payFlowers(orderedFlowers);
-                return;
+                    //TODO: Abfrage ob FlowerDealer genug von gewünschter Blume hat
+                    final List<Flower> orderedFlowers = flowerDealer.order(amount);
+                    System.out.println("Your current account balance is " + inventory.getCurrency() + "$\n");
+                    inventory.addFlowers(orderedFlowers);
+
+                    payFlowers(orderedFlowers);
+                    flowerDealer.removeFlowers(amount);
+                    return;
+                }
+            }
+        } else {
+            System.out.println("We're sorry, you don't have enough money");
+        }
+    }
+
+    public double getPriceOfOrder(final String flowerName, final int amount) {
+        for (final FlowerDealer flowerDealer : availableFlowerDealers) {
+            for (final Flower flower : flowerDealer.getFlowersOnStock()) {
+                if (flower.getName().equals(flowerName)) {
+                    return flower.getPrice() * amount;
+                }
             }
         }
+        return 0;
     }
 
     public double getPurchasePrice(final String flowerName, final int amount) {
@@ -111,7 +133,7 @@ public class FlowerShop {
     }
 
     public void printInformation(final String flowerName) {
-        inventory.returnFlowerInformation(flowerName);
+        inventory.getFlowerInformation(flowerName);
     }
 
     public void receiveMoney(final int amount, final String flowerName) {

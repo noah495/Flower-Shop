@@ -43,8 +43,8 @@ class FlowerShopTest {
     void givenShopWithFlowerDealersTuilpAndRoseWhenIsFlowerExistingSunflowerThenReturnFalse() {
         //FlowerDealer > Blumen zuweisen > Blume bestellen! > Überprüfen
         //Arrange
-        final FlowerDealer flowerDealerTulip = new FlowerDealer("tulip");
-        final FlowerDealer flowerDealerRose = new FlowerDealer("rose");
+        final FlowerDealer flowerDealerTulip = new FlowerDealer("tulip", 200);
+        final FlowerDealer flowerDealerRose = new FlowerDealer("rose", 100);
         final List<FlowerDealer> availableFlowerDealer = new ArrayList<FlowerDealer>();
         final FlowerShop testee = new FlowerShop("Paula", "Seestrasse", availableFlowerDealer);
         //Act
@@ -58,8 +58,8 @@ class FlowerShopTest {
     @Test
     void givenShopWithFlowerDealersTuilpAndRoseWhenIsFlowerExistingTulipThenReturnTrue() {
 
-        final FlowerDealer flowerDealerTulip = new FlowerDealer("tulip");
-        final FlowerDealer flowerDealerRose = new FlowerDealer("rose");
+        final FlowerDealer flowerDealerTulip = new FlowerDealer("tulip", 400);
+        final FlowerDealer flowerDealerRose = new FlowerDealer("rose", 300);
         final List<FlowerDealer> availableFlowerDealer = new ArrayList<FlowerDealer>();
         availableFlowerDealer.add(flowerDealerTulip);
         availableFlowerDealer.add(flowerDealerRose);

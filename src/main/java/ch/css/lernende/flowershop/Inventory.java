@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Inventory {
     private final List<Flower> flowersInPossession = new ArrayList<>();
-    private double currency = 2100;
+    private double currency = 2;
 
     public double getCurrency() {
         return currency;
@@ -77,7 +77,7 @@ public class Inventory {
         return null;
     }
 
-    public StringBuilder returnFlowerInformation(final String flowerName) {
+    public StringBuilder getFlowerInformation(final String flowerName) {
         for (final Flower flower : flowersInPossession) {
             if (flower.getName().equals(flowerName)) {
                 final StringBuilder stringBuilder = new StringBuilder();
