@@ -2,6 +2,7 @@ package ch.css.lernende.flowershop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Customer {
     private final List<FlowerShop> availableFlowerShops;
@@ -26,15 +27,15 @@ public class Customer {
         return null;
     }
 
-    public Flower pickRandomFlowerinFlowerShop(final String flowerShopName) {
+    public Optional<Flower> pickRandomFlowerinFlowerShop(final String flowerShopName) {
         for (final FlowerShop flowerShop : availableFlowerShops) {
             if (flowerShop.getShopName().equals(flowerShopName)) {
                 final double randomFlowerDigit = Math.random() * 4;
                 final int flowerDigit = (int) randomFlowerDigit;
-                return flowerShop.chosenFlower(flowerDigit);
+                return Optional.of(flowerShop.chosenFlower(flowerDigit));
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     public void buyFlower(final int amount, final String flowerName) {
