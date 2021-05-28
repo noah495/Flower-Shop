@@ -2,6 +2,7 @@ package ch.css.lernende.flowershop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class FlowerShop {
     private final List<Flower> orderedFlowers = new ArrayList<>();
@@ -47,7 +48,7 @@ public class FlowerShop {
         return inventory.getCurrency();
     }
 
-    public String getFlowerInformation(final String flowerName) {
+    public Optional<String> getFlowerInformation(final String flowerName) {
         return inventory.getFlowerInformation(flowerName);
     }
 

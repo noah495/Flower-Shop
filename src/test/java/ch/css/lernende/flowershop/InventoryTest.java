@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +20,7 @@ class InventoryTest {
         //Act
         final double actual = testee.getCurrency();
         //Assert
-        assertEquals(2300, actual);
+        assertEquals(2200, actual);
     }
 
     @Test
@@ -103,11 +104,12 @@ class InventoryTest {
         final FlowerDealer flowerDealer = new FlowerDealer("tulip", 200);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop testee = new FlowerShop("flowerz", "wallstreet", flowerDealers);
+        testee.getInventory().addCurrency(2000);
         testee.orderFlower(50, "tulip");
         final String expected = "Information about tulip\nRecommended temperature: 10\nPrice: 6.9\nRequires Light: No\nSize when bought: 14";
 
         //Act
-        final String actual = testee.getInventory().getFlowerInformation("tulip");
+        final String actual = testee.getInventory().getFlowerInformation("tulip").get();
         //Assert
         assertEquals(expected, actual.toString());
     }
