@@ -19,9 +19,9 @@ public class Customer {
 
     public Optional<String> getFlowerInformation(final String flowerName) {
         for (final FlowerShop flowerShop : availableFlowerShops) {
-            final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
-            if (flowerAvailable) {
-                return flowerShop.getFlowerInformation(flowerName);
+            Optional<String> flowerInformation = flowerShop.getFlowerInformation(flowerName);
+            if (flowerInformation.isPresent()){
+                return flowerInformation;
             }
         }
         return Optional.empty();

@@ -40,7 +40,7 @@ public class FlowerShop {
         return inventory;
     }
 
-    public List<Flower> getFlowerInPossession() {
+    public List<Flower> getFlowersInPossession() {
         return inventory.getFlowerInPossession();
     }
 
@@ -54,14 +54,6 @@ public class FlowerShop {
 
     public List<Flower> getOrderedFlowers() {
         return orderedFlowers;
-    }
-
-    public List<Flower> getFlowersInPossession() {
-        return inventory.getFlowerInPossession();
-    }
-
-    public boolean isFlowerExisting(final String flowerName) {
-        return inventory.isFlowerAvailable(flowerName, 1);
     }
 
     public boolean isFlowerAvailable(final String flowerName, final int amount) {

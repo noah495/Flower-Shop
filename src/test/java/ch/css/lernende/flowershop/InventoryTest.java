@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -53,7 +52,7 @@ class InventoryTest {
         testee.orderFlower(20, "rose");
 
         //Act
-        final int actual = testee.getFlowerInPossession().size();
+        final int actual = testee.getFlowersInPossession().size();
 
         //Assert
         assertEquals(20, actual);

@@ -50,7 +50,7 @@ class FlowerShopTest {
         //Act
         testee.orderFlower(10, "tulip");
         testee.orderFlower(10, "rose");
-        final boolean actual = testee.isFlowerExisting("sunflower");
+        final boolean actual = testee.getInventory().getFlowerInPossession().stream().filter(flower -> flower.getName().equals("sunflower")).findFirst().isPresent();
         //Arrange
         Assertions.assertEquals(false, actual);
     }
@@ -68,7 +68,7 @@ class FlowerShopTest {
         testee.orderFlower(10, "rose");
 
         //Act
-        final boolean actual = testee.isFlowerExisting("tulip");
+        final boolean actual =  testee.getInventory().getFlowerInPossession().stream().filter(flower -> flower.getName().equals("tulip")).findFirst().isPresent();
         //Arrange
         Assertions.assertEquals(true, actual);
     }

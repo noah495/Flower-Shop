@@ -89,7 +89,6 @@ public class Inventory {
                 return Optional.of(stringBuilder.toString());
             }
         }
-
         return Optional.empty();
     }
 
