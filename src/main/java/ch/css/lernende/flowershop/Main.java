@@ -1,5 +1,7 @@
 package ch.css.lernende.flowershop;
 
+import ch.css.lernende.flowershop.exception.FlowerNotFoundException;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -30,22 +32,14 @@ public class Main {
         flowerShopGiswiler.orderFlower(5, "tulip");
         flowerShopGiswiler.orderFlower(30, "rose");
 
-        final Optional<Flower> pickedFlower = customer1.pickRandomFlowerinFlowerShop("Giswiler");
+        final Flower pickedFlower = customer1.pickRandomFlowerinFlowerShop("Giswiler").orElseThrow(FlowerNotFoundException::new);
 
-        if (!pickedFlower.isPresent()) {
-            throw new RuntimeException("Whoops, we weren't able to find this Flower. Try again.");
-        }
-
-        final Optional<String>  flowerInformation =  customer1.getFlowerInformation("rose");
-
-        if (flowerInformation.isEmpty()){
-            throw new RuntimeException("No information found for this flower");
-        }
+        customer1.getFlowerInformation("rose").orElseThrow(FlowerNotFoundException::new);
 
         final double randomAmount = Math.random() * 5;
         final int amount = (int) randomAmount;
 
-        customer1.buyFlower(amount, pickedFlower.get().getName());
+        customer1.buyFlower(amount, pickedFlower.getName());
         flowerShopGiswiler.getInventory().getFlowerInformation("tulip");
         flowerShopGiswiler.getInventory().printFlowers();
         flowerShopGiswiler.getCurrency();

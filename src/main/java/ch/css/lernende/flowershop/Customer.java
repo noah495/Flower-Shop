@@ -21,7 +21,7 @@ public class Customer {
         for (final FlowerShop flowerShop : availableFlowerShops) {
             final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
             if (flowerAvailable) {
-                return Optional.of(flowerShop.getFlowerInformation(flowerName).get());
+                return flowerShop.getFlowerInformation(flowerName);
             }
         }
         return Optional.empty();
