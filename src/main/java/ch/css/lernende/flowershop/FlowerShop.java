@@ -69,7 +69,6 @@ public class FlowerShop {
     }
 
     //TODO: Freitag: Unterschied simple Datentypen zu Optional und zu Objekt und zu strukturierten Datentypen
-    //TODO: Freitag: Optional (.empty(), .of(), ...)
     //(Double > double)
 
     public Double getCustomerPurchasePrice(final String flowerName, final int amount) {
