@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Inventory {
     private final List<Flower> flowersInPossession = new ArrayList<>();
-    private double currency = 2;
+    private double currency = 2000;
 
     public double getCurrency() {
         return currency;
@@ -68,11 +68,10 @@ public class Inventory {
         flowersInPossession.addAll(flowers);
     }
 
-    public String chooseFlower(final int digit) {
+    public Flower chooseFlower(final int digit) {
         if (flowersInPossession.size() >= digit) {
             final Flower choosenFlower = flowersInPossession.get(digit);
-            final String flowerName = choosenFlower.getName();
-            return flowerName;
+            return choosenFlower;
         }
         return null;
     }

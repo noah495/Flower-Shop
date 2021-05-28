@@ -14,6 +14,7 @@ class CustomerTest {
         final FlowerDealer flowerDealerWithTulip = new FlowerDealer("tulip", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealerWithTulip);
         final FlowerShop flowerShopWithTulip = new FlowerShop("Flower", "Tribschen", flowerDealers);
+        flowerShopWithTulip.getInventory().addCurrency(2000);
         flowerShopWithTulip.orderFlower(20, "tulip");
         final List<FlowerShop> availableFlowers = Collections.singletonList(flowerShopWithTulip);
         final Customer testee = new Customer("John", availableFlowers);
@@ -31,7 +32,9 @@ class CustomerTest {
         final FlowerDealer flowerDealer = new FlowerDealer("tulip", 100);
         final List<FlowerDealer> flowerDealers = Collections.singletonList(flowerDealer);
         final FlowerShop flowerShop = new FlowerShop("NoahsFlowerPower", "Hergiswil", flowerDealers);
+        flowerShop.getInventory().addCurrency(2000);
         flowerShop.orderFlower(2, "tulip");
+
         final List<FlowerShop> flowerShops = Collections.singletonList(flowerShop);
         final Customer testee = new Customer("Natascha", flowerShops);
         testee.buyFlower(1, "tulip");

@@ -13,8 +13,6 @@ public class FlowerDealer {
     public FlowerDealer(final String flowerName, final int amount) {
         this.specialisedFlower = flowerName;
         createFlowers(amount);
-        //TODO: FlowerDealer bei order Flower Blumen erstellen
-        //TODO: Wenn Blumen gekauft dann Blumen von FlowerDealer abgezogen
     }
 
     public List<Flower> getFlowersOnStock() {
@@ -58,7 +56,6 @@ public class FlowerDealer {
     }
 
     public List<Flower> order(final int amount) {
-        //TODO: Überprüfen ob genug Blumen
         final List<Flower> flowersToDeliver = new ArrayList<>();
         if (amount <= flowersOnStock.size()) {
             for (int i = 0; i < amount; i++) {

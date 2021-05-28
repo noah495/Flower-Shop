@@ -14,6 +14,7 @@ public class Customer {
         this.name = costumerName;
         this.availableFlowerShops = flowerShops;
     }
+    //TODO: kein null returnen (überall)
 
     public StringBuilder getFlowerInformation(final String flowerName) {
         for (final FlowerShop flowerShop : availableFlowerShops) {
@@ -26,16 +27,11 @@ public class Customer {
     }
 
     public Flower pickRandomFlowerinFlowerShop(final String flowerShopName) {
-        for (final FlowerShop FlowerShop : availableFlowerShops) {
-            if (FlowerShop.getShopName().equals(flowerShopName)) {
+        for (final FlowerShop flowerShop : availableFlowerShops) {
+            if (flowerShop.getShopName().equals(flowerShopName)) {
                 final double randomFlowerDigit = Math.random() * 4;
                 final int flowerDigit = (int) randomFlowerDigit;
-                final String flowerName = FlowerShop.chosenFlower(flowerDigit);
-                for (final Flower flower : FlowerShop.getFlowersInPossession()) {
-                    if (flower.getName().equals(flowerName)) {
-                        return flower;
-                    }
-                }
+                return flowerShop.chosenFlower(flowerDigit);
             }
         }
         return null;
