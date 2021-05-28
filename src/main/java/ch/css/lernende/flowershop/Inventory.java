@@ -2,6 +2,7 @@ package ch.css.lernende.flowershop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Inventory {
     private final List<Flower> flowersInPossession = new ArrayList<>();
@@ -76,7 +77,7 @@ public class Inventory {
         return null;
     }
 
-    public StringBuilder getFlowerInformation(final String flowerName) {
+    public Optional<String> getFlowerInformation(final String flowerName) {
         for (final Flower flower : flowersInPossession) {
             if (flower.getName().equals(flowerName)) {
                 final StringBuilder stringBuilder = new StringBuilder();
@@ -85,11 +86,11 @@ public class Inventory {
                 stringBuilder.append("\nPrice: " + flower.getPrice());
                 stringBuilder.append("\nRequires Light: " + flower.getLightRequired());
                 stringBuilder.append("\nSize when bought: " + flower.getSizeInCm());
-                return stringBuilder;
+                return Optional.of(stringBuilder.toString());
             }
         }
 
-        return null;
+        return Optional.empty();
     }
 
     public void printFlowers() {

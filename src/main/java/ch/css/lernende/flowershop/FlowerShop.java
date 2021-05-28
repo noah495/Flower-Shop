@@ -47,7 +47,7 @@ public class FlowerShop {
         return inventory.getCurrency();
     }
 
-    public StringBuilder getFlowerInformation(final String flowerName) {
+    public String getFlowerInformation(final String flowerName) {
         return inventory.getFlowerInformation(flowerName);
     }
 

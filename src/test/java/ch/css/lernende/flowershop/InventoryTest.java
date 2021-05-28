@@ -107,7 +107,7 @@ class InventoryTest {
         final String expected = "Information about tulip\nRecommended temperature: 10\nPrice: 6.9\nRequires Light: No\nSize when bought: 14";
 
         //Act
-        final StringBuilder actual = testee.getInventory().getFlowerInformation("tulip");
+        final String actual = testee.getInventory().getFlowerInformation("tulip");
         //Assert
         assertEquals(expected, actual.toString());
     }

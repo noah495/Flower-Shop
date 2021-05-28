@@ -36,6 +36,12 @@ public class Main {
             throw new RuntimeException("Whoops, we weren't able to find this Flower. Try again.");
         }
 
+        final Optional<String>  flowerInformation =  customer1.getFlowerInformation("rose");
+
+        if (flowerInformation.isEmpty()){
+            throw new RuntimeException("No information found for this flower");
+        }
+
         final double randomAmount = Math.random() * 5;
         final int amount = (int) randomAmount;
 
@@ -43,7 +49,6 @@ public class Main {
         flowerShopGiswiler.getInventory().getFlowerInformation("tulip");
         flowerShopGiswiler.getInventory().printFlowers();
         flowerShopGiswiler.getCurrency();
-        customer1.getFlowerInformation("rose");
     }
 }
 

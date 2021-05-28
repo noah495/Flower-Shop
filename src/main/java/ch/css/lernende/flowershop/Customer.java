@@ -17,14 +17,14 @@ public class Customer {
     }
     //TODO: kein null returnen (überall)
 
-    public StringBuilder getFlowerInformation(final String flowerName) {
+    public Optional<String> getFlowerInformation(final String flowerName) {
         for (final FlowerShop flowerShop : availableFlowerShops) {
             final boolean flowerAvailable = flowerShop.isFlowerExisting(flowerName);
             if (flowerAvailable) {
-                return flowerShop.getFlowerInformation(flowerName);
+                return Optional.of(flowerShop.getFlowerInformation(flowerName));
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     public Optional<Flower> pickRandomFlowerinFlowerShop(final String flowerShopName) {
